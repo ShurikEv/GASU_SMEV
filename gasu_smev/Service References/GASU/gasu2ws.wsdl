@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:gasu2ws="http://www.government.ru/gasu2/services" xmlns:smev="http://smev.gosuslugi.ru/rev120315" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.w3.org/2004/08/xop/include" name="gasu2ws" targetNamespace="http://smev.gosuslugi.ru/rev120315" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://smev.gosuslugi.ru/rev120315">
+      <xsd:include schemaLocation="SID0003565/N360171173/OwsmImport.xsd" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="publishRequest">
+    <wsdl:part name="inputMessage" element="smev:GasuMessage" />
+  </wsdl:message>
+  <wsdl:message name="publishResponse">
+    <wsdl:part name="ticket" element="smev:GasuTicket" />
+  </wsdl:message>
+  <wsdl:message name="queryRequest">
+    <wsdl:part name="inputQuery" element="smev:GasuQueryMessage" />
+  </wsdl:message>
+  <wsdl:message name="queryResponse">
+    <wsdl:part name="queryResponse" element="smev:GasuTicket" />
+  </wsdl:message>
+  <wsdl:message name="updatesRequest">
+    <wsdl:part name="inputUpdatesMessage" element="smev:GasuUpdatesMessage" />
+  </wsdl:message>
+  <wsdl:message name="updatesResponse">
+    <wsdl:part name="outputUpdatesMessage" element="smev:GasuTicket" />
+  </wsdl:message>
+  <wsdl:portType name="gasu2">
+    <wsdl:operation name="publish">
+      <wsdl:input message="smev:publishRequest" />
+      <wsdl:output message="smev:publishResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="query">
+      <wsdl:input message="smev:queryRequest" />
+      <wsdl:output message="smev:queryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updates">
+      <wsdl:input message="smev:updatesRequest" />
+      <wsdl:output message="smev:updatesResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="gasu2SOAP" type="smev:gasu2">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="publish">
+      <soap:operation soapAction="http://www.government.ru/gasu2/publish" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="query">
+      <soap:operation soapAction="http://www.government.ru/gasu2/query" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updates">
+      <soap:operation soapAction="http://www.government.ru/gasu2/updates" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="gasu2SOAP">
+    <wsdl:port name="gasu2SOAP" binding="smev:gasu2SOAP">
+      <soap:address location="http://d00smevapp01:9999/gateway/services/SID0003565" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
