@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9a42d36b-427a-49f3-8ddb-777de6dc8bf5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://188.254.16.92:7777/gateway/services/SID0003565?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OwsmImport.xsd" MetadataType="Schema" ID="04de2e65-fa8c-4034-9991-429cfad4a276" SourceId="1" SourceUrl="http://188.254.16.92:7777/gateway/services/SID0003565/N360171173/SID0003565/N360171174/OwsmImport.xsd" />
+    <MetadataFile FileName="gasu2ws.wsdl" MetadataType="Wsdl" ID="544e2243-27d9-4e61-8829-a45c3d67df10" SourceId="1" SourceUrl="http://188.254.16.92:7777/gateway/services/SID0003565?wsdl" />
+    <MetadataFile FileName="OwsmImport1.xsd" MetadataType="Schema" ID="7bd0682c-a098-4007-b14f-4e7f752499ef" SourceId="1" SourceUrl="http://188.254.16.92:7777/gateway/services/SID0003565/N360171173/OwsmImport.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

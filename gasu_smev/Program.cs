@@ -49,7 +49,7 @@ namespace gasu_smev
             /// Устанавливаем модифицированную привязку.
             client.Endpoint.Binding = binding;
 
-            client.ChannelFactory.Endpoint.Contract.ProtectionLevel = ProtectionLevel.Sign;
+            client.ChannelFactory.Endpoint.Contract.ProtectionLevel = ProtectionLevel.None;
             #region MSG
             var msg = new GASU.GasuMessage
             {
