@@ -1,0 +1,241 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+    ViewBag.AJAXGasuFuncAdress = Url.Action("SendDataToGASU", "Home");
+
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                To learn more about ASP.NET MVC visit
+                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
+                If you have any questions about ASP.NET MVC visit
+                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
+            </p>
+        </div>
+    </section>
+}
+<h3>We suggest the following:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Getting Started</h5>
+        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+        enables a clean separation of concerns and that gives you full control over markup
+        for enjoyable, agile development. ASP.NET MVC includes many features that enable
+        fast, TDD-friendly development for creating sophisticated applications that use
+        the latest web standards.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
+    </li>
+
+    <li class="two">
+        <h5>Add NuGet packages and jump-start your coding</h5>
+        NuGet makes it easy to install and update free libraries and tools.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
+    </li>
+
+    <li class="three">
+        <h5>Find Web Hosting</h5>
+        You can easily find a web hosting company that offers the right mix of features
+        and price for your applications.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
+    </li>
+</ol>
+
+
+<style type="text/css">
+    object.hiddenObject {
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
+        margin: 0px;
+        padding: 0px;
+        border-style: none;
+        border-width: 0px;
+        max-width: 0px;
+        max-height: 0px;
+    }
+</style>
+
+<input type="button" value="Отправить данные в ГАСУ" id="btn_send_to_gasu" />
+
+<object id="cadesplugin" type="application/x-cades" class="hiddenObject"></object>
+
+@{
+    var myBrowserCaps = Request.Browser;
+    string sUserAgent = myBrowserCaps.Browser.ToLower();
+    bool fIsIE = sUserAgent.IndexOf("ie") >= 0 || // IE <= 10
+        sUserAgent.IndexOf("trident") >= 0; // IE 11
+    bool fIsIOS = sUserAgent.IndexOf("ipod") >= 0 ||
+        sUserAgent.IndexOf("ipad") >= 0 ||
+        sUserAgent.IndexOf("iphone") >= 0;
+}
+
+@{
+    if (fIsIE)
+    { 
+    <text>
+    <object id='certEnrollClassFactory' classid='clsid:884e2049-217d-11da-b2a4-000e7bbb2b09'></object>
+    </text>
+    } 
+}
+
+<script type="text/javascript">
+    var g_cadesPluginObject = document.getElementById("cadesplugin");
+
+    @{
+        if (fIsIE)
+        {
+            <text>
+    var g_objCertEnrollClassFactory = document.getElementById("certEnrollClassFactory");
+    </text>
+        }
+    }
+
+    function CreateObject(name) {
+        @{
+            if (fIsIOS)
+            {
+                // На iOS для создания объектов используется функция
+                // call_ru_cryptopro_npcades_10_native_bridge, определенная в NativeBridge.js
+                <text>
+        return call_ru_cryptopro_npcades_10_native_bridge("CreateObject", [name]);
+        </text>
+            }
+            else if (!fIsIE)
+            {
+                // В Firefox, Opera, Chrome, Safari создаются объекты NPAPI
+                <text>
+        return g_cadesPluginObject.CreateObject(name);
+        </text>
+            }
+            else
+            {
+                // В Internet Explorer создаются COM-объекты
+                // Объекты CertEnroll создаются через CX509EnrollmentWebClassFactory
+                // Объекты CAPICOM и CAdESCOM создаются обычным способом
+                <text>
+        if (name.match(/X509Enrollment/i)) {
+            return g_objCertEnrollClassFactory.CreateObject(name);
+        }
+        return new ActiveXObject(name);
+        </text>
+            }
+    }
+    }
+
+    var certName = 'ДИС КК';
+    var CAPICOM_CURRENT_USER_STORE = 2;
+    var CAPICOM_MY_STORE = "My";
+    var CAPICOM_STORE_OPEN_MAXIMUM_ALLOWED = 2;
+    var CAPICOM_CERTIFICATE_FIND_SUBJECT_NAME = 1;
+    var CADESCOM_XML_SIGNATURE_TYPE_TEMPLATE = 2;
+    var CADESCOM_ENCODE_BASE64 = 0;
+
+    function GetErrorMessage(e) {
+        var err = e.message;
+        if (!err) {
+            err = e;
+        } else if (e.number) {
+            err += " (" + e.number + ")";
+        }
+        return err;
+    }
+
+    function GetCertificateBySubjectName(certSubjectName) {
+        var oStore = CreateObject("CAPICOM.Store");
+        oStore.Open(CAPICOM_CURRENT_USER_STORE, CAPICOM_MY_STORE,
+            CAPICOM_STORE_OPEN_MAXIMUM_ALLOWED);
+
+        var oCertificates = oStore.Certificates.Find(
+            CAPICOM_CERTIFICATE_FIND_SUBJECT_NAME, certSubjectName);
+        if (oCertificates.Count == 0) {
+            alert("Certificate not found: " + certSubjectName);
+            return;
+        }
+        var oCertificate = oCertificates.Item(1);
+
+        return oCertificate;
+    }
+
+    function SignCreate(oCertificate, dataToSign) {
+
+        // Создаем объект CAdESCOM.CPSigner
+        var oSigner = CreateObject("CAdESCOM.CPSigner");
+        oSigner.Certificate = oCertificate;
+
+        // Создаем объект CAdESCOM.SignedXML
+        var oSignedXML = CreateObject("CAdESCOM.SignedXML");
+        oSignedXML.Content = dataToSign;
+
+        // Указываем тип подписи - в данном случае по шаблону
+        oSignedXML.SignatureType = CADESCOM_XML_SIGNATURE_TYPE_TEMPLATE;
+
+        var sSignedMessage = "";
+        try {
+            sSignedMessage = oSignedXML.Sign(oSigner);
+        } catch (err) {
+            alert("Failed to create signature. Error: " + GetErrorMessage(err));
+            return;
+        }
+
+        return sSignedMessage;
+    }
+
+    function Verify(sSignedMessage) {
+
+        // Создаем объект CAdESCOM.SignedXML
+        var oSignedXML = CreateObject("CAdESCOM.SignedXML");
+
+        try {
+            oSignedXML.Verify(sSignedMessage);
+        } catch (err) {
+            alert("Failed to verify signature. Error: " + GetErrorMessage(err));
+            return false;
+        }
+
+        return true;
+    }
+
+
+    $(document).ready(function () {
+        $('#btn_send_to_gasu').click(function () {
+            $.get('@ViewBag.AJAXGasuFuncAdress').done(success);
+        });
+    });
+
+    function success(data) {
+
+        var oCertificate = GetCertificateBySubjectName(certName);
+
+
+        var token = oCertificate.Export(CADESCOM_ENCODE_BASE64);
+
+        var oDom = (new DOMParser()).parseFromString(data, 'text/xml');
+
+        var secToken = oDom.childNodes[0].childNodes[1].childNodes[1].childNodes[1];
+
+        secToken.innerHTML = token;
+
+        
+        data = oDom.firstChild.outerHTML;
+        
+
+        var data = SignCreate(oCertificate, data);
+
+        if (Verify(data)) {
+            
+            $.post('http://188.254.16.92:7777/gateway/services/SID0003565?wsdl', data);
+        }
+
+    }
+
+    function success2(data) {
+        alert(data);
+    }
+</script>
