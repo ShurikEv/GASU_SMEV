@@ -24,8 +24,6 @@ namespace gasu_web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
-            ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
-            ValueProviderFactories.Factories.Add(new XmlValueProviderFactory());
         }
     }
 }

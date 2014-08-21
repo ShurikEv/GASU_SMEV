@@ -1,0 +1,968 @@
+﻿<Indicator ShortName="Доля внутренних затрат на исследования и разработки в валовом региональном продукте (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Доля внутренних затрат на исследования и разработки в валовом региональном продукте (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/28">
+  <Methodology>Доля внутренних затрат на исследования и разработки в валовом региональном продукте</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Доля граждан, имеющих доступ к получению государственных услуг по принципу «одного окна» по месту пребывания (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Доля граждан, имеющих доступ к получению государственных услуг по принципу «одного окна» по месту пребывания, в том числе в многофункциональных центрах предоставления государственных муниципальных услуг (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/37">
+  <Methodology>Отношение количества граждан, имеющих доступ к получению государственных услуг по принципу «одного окна» по месту пребывания от общего количества граждан по месту пребывания</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Доля граждан, использующих механизм получения государственных и муниципальных услуг в электронной форме (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Доля граждан, использующих механизм получения государственных и муниципальных услуг в электронной форме (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/38">
+  <Methodology>Отношение количества граждан, использующих механизм получения государственных и муниципальных услуг в электронной форме от общего количества  граждан воспользовавшихся государственными и муниципальными услугами</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Доля детей в возрасте от 5 до 18 лет, обучающихся по дополнительным образовательным программам, в общей численности детей этого возраста (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Доля детей в возрасте от 5 до 18 лет, обучающихся по дополнительным образовательным программам, в общей численности детей этого возраста (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/26">
+  <Methodology>Доля детей в возрасте от 5 до 18 лет, обучающихся по дополнительным образовательным программам, в общей численности детей этого возраста</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Доля детей, привлекаемых к участию в творческих мероприятиях, от общего числа детей (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Доля детей, привлекаемых к участию в творческих мероприятиях, от общего числа детей (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/18">
+  <Methodology>Доля детей, привлекаемых к участию в творческих мероприятиях, от общего числа детей </Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Доля заемных средств в общем объеме капитальных вложений в системы теплоснабжения, водоснабжения, водоотведения и очистки сточных вод (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Доля заемных средств в общем объеме капитальных вложений в системы теплоснабжения, водоснабжения, водоотведения и очистки сточных вод (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/29">
+  <Methodology>Доля заемных средств в общем объеме капитальных вложений в системы теплоснабжения, водоснабжения, водоотведения и очистки сточных вод</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Доля занятого населения в возрасте от 25 до 65 лет, прошедшего повышение квалификации и (или) проф. подготовку, от  общей численности занятого в области экономики населения этой возрастной группы (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Доля занятого населения в возрасте от 25 до 65 лет, прошедшего повышение квалификации и (или) профессиональную подготовку, от  общей численности занятого в области экономики населения этой возрастной группы (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/25">
+  <Methodology>Доля занятого населения в возрасте от 25 до 65 лет, прошедшего повышение квалификации и (или) профессиональную подготовку, от общей численности занятого в области экономики населения этой возрастной группы</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Доля образовательных организаций СПО, здания которых приспособлены для обучения лиц с ограниченными возможностями здоровья, в общем числе соответствующих организаций (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Доля образовательных организаций среднего профессионального образования, здания которых приспособлены для обучения лиц с ограниченными возможностями здоровья, в общем числе соответствующих организаций (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/27">
+  <Methodology>Доля образовательных организаций среднего профессионального образования, здания которых приспособлены для обучения лиц с ограниченными возможностями здоровья, в общем числе соответствующих организаций</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Доля продукции высокотехнологичных и наукоемких отраслей в ВРП относительно уровня 2011 года (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Доля продукции высокотехнологичных и наукоемких отраслей в валовом региональном продукте относительно уровня 2011 года (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/4">
+  <Methodology>Отношение доли продукции высокотехнологичных и наукоемких отраслей в валовом региональном продукте к  доле продукции высокотехнологичных и наукоемких отраслей в валовом региональном продукте в 2011 году</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Количество случаев младенческой смертности на 1000 родившихся живыми" actualDate="2014-03-14T00:00:00.000+03:00" name="Количество случаев младенческой смертности на 1000 родившихся живыми" providerRef="GASU" uid="ГАСУ/МУП/Р/23">
+  <Methodology>Количество случаев младенческой смертности на 1000 родившихся живыми</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="ед" itemId="642" name="Единица"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Смертность от болезней системы кровообращения (случаев на 100 тыс. населения)" actualDate="2014-03-14T00:00:00.000+03:00" name="Количество смертных случаев от болезней системы кровообращения на 100 тыс. населения (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/19">
+  <Methodology>Количество смертных случаев от болезней системы кровообращения на 100 тыс. населения</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="ед" itemId="642" name="Единица"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Смертность от дорожно-транспортных происшествий (случаев на 100 тыс. населения)" actualDate="2014-03-14T00:00:00.000+03:00" name="Количество смертных случаев от дорожно-транспортных происшествий на 100 тыс. населения (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/22">
+  <Methodology>Количество смертных случаев от дорожно-транспортных происшествий на 100 тыс. населения</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="ед" itemId="642" name="Единица"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Смертность от новообразований (в том числе злокачественных) (случаев на 100 тыс. населения)" actualDate="2014-03-14T00:00:00.000+03:00" name="Количество смертных случаев от новообразований (в том числе злокачественных) на 100 тыс. населения (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/20">
+  <Methodology>Количество смертных случаев от новообразований (в том числе злокачественных) на 100 тыс. населения</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="ед" itemId="642" name="Единица"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Смертность от туберкулеза (случаев на 100 тыс. населения)" actualDate="2014-03-14T00:00:00.000+03:00" name="Количество смертных случаев от туберкулеза на 100 тыс. населения (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/21">
+  <Methodology>Количество смертных случаев от туберкулеза на 100 тыс. населения</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="ед" itemId="642" name="Единица"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Количество лет, необходимых семье, состоящих из 3 человек, для приобретения стандартной квартиры общей площадью 54 кв. м. с учетом среднего годового совокупного дохода семьи  (лет)" actualDate="2014-03-14T00:00:00.000+03:00" name="Количество лет, необходимых семье, состоящих из 3 человек, для приобретения стандартной квартиры общей площадью 54 кв. м. с учетом среднего годового совокупного дохода семьи (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/30">
+  <Methodology>Количество лет, необходимых семье, состоящих из 3 человек, для приобретения стандартной квартиры общей площадью 54 кв. м. с учетом среднего годового совокупного дохода семьи</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="г; лет" itemId="366" name="Год"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Доступность дошкольного образования (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Доступность дошкольного образования (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/24">
+  <Methodology>Отношение численности детей в возрасте от 3 до 7 лет, получающих дошкольное образование в текущем году, к сумме численности детей в возрасте от 3 до 7 лет, получающих дошкольное образование в текущем году и численности детей в возрасте от 3 до 7 лет, находящихся в очереди на получение в текущем году дошкольного образования</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Индекс производительности труда относительно уровня 2011 года (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Индекс производительности труда относительно уровня 2011 года (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/5">
+  <Methodology>Отношение индекса производительности труда в отчетном году к индексу производительности труда в 2011 году</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Количество оборудованных (оснащенных) рабочих мест для трудоустройства инвалидов за год (единицы)" actualDate="2014-03-14T00:00:00.000+03:00" name="Количество оборудованных (оснащенных) рабочих мест для трудоустройства инвалидов за год (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/16">
+  <Methodology>Количество оборудованных (оснащенных) рабочих мест для трудоустройства инвалидов за год</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="ед" itemId="642" name="Единица"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Объем ввода жилья по стандартам эконом-класса (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Объем ввода жилья по стандартам эконом-класса (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/34">
+  <Methodology>Объем ввода жилья по стандартам эконом-класса</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Объем ввода жилья по стандартам эконом-класса (млн. кв. м.)" actualDate="2014-03-14T00:00:00.000+03:00" name="Объем ввода жилья по стандартам эконом-класса (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/33">
+  <Methodology>Объем ввода жилья по стандартам эконом-класса</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="10^6 м2" itemId="057" name="Миллион квадратных метров"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Ожидаемая продолжительность жизни при рождении (лет)" actualDate="2014-03-14T00:00:00.000+03:00" name="Ожидаемая продолжительность жизни при рождении (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/42">
+  <Methodology>Ожидаемая продолжительность жизни при рождении</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="г; лет" itemId="366" name="Год"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Отношение объема инвестиций в основной капитал к валовому региональному продукту (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Отношение объема инвестиций в основной капитал к валовому региональному продукту (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/3">
+  <Methodology>Отношение объема инвестиций в основной капитал к валовому региональному продукту</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Отношение средней зарплаты  врачей и работников мед. организаций, имеющих высшее медицинское или иное высшее образование, предоставляющих мед. услуги  к средней заработной плате по субъекту РФ  (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Отношение средней заработной платы  врачей и работников медицинских организаций, имеющих высшее медицинское (фармацевтическое) или иное высшее образование, предоставляющих медицинские услуги (обеспечивающих предоставление медицинских услуг) к средней заработной плате по субъекту Российской Федерации (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/11">
+  <Methodology>Отношение средней заработной платы  врачей и работников медицинских организаций, имеющих  высшее образование, предоставляющих медицинские услуги  к средней заработной плате по субъекту РФ</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Quarterly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Отношение средней заработной платы  педагогических работников дошкольных образовательных учреждений к средней заработной плате в сфере общего образования в субъекте РФ (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Отношение средней заработной платы  педагогических работников дошкольных образовательных учреждений к средней заработной плате в сфере общего образования в субъекте Российской Федерации (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/8">
+  <Methodology>Отношение средней заработной платы  педагогических работников дошкольных образовательных учреждений к средней заработной плате в сфере общего образования в субъекте РФ</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Quarterly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Отношение средней заработной платы  педагогических работников образовательных учреждений общего образования к средней заработной плате по субъекту РФ (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Отношение средней заработной платы  педагогических работников образовательных учреждений общего образования к средней заработной плате по субъекту Российской Федерации (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/7">
+  <Methodology>Отношение средней заработной платы  педагогических работников образовательных учреждений общего образования к средней заработной плате по субъекту РФ</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Quarterly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Отношение средней заработной платы младшего медицинского персонала (персонала, обеспечивающего условия для предоставления медицинских услуг) к средней зарплате по субъекту Российской Федерации (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Отношение средней заработной платы младшего медицинского персонала (персонала, обеспечивающего условия для предоставления медицинских услуг) к средней заработной плате по субъекту Российской Федерации (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/14">
+  <Methodology>Отношение средней заработной платы младшего медицинского персонала (персонала, обеспечивающего условия для предоставления медицинских услуг) к средней заработной плате по субъекту Российской Федерации</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Quarterly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Отношение средней зарплаты преподавателей и мастеров производственного обучения образовательных учреждений начального и среднего профессионального образования к средней зарплате по субъекту РФ (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Отношение средней заработной платы преподавателей и мастеров производственного обучения образовательных учреждений начального и среднего профессионального образования к средней заработной плате по субъекту Российской Федерации (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/9">
+  <Methodology>Отношение средней заработной платы преподавателей и мастеров производственного обучения образовательных учреждений начального и среднего профессионального образования к средней заработной плате по субъекту РФ</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Quarterly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Отношение средней заработной платы работников учреждений культуры к средней заработной плате по субъекту РФ (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Отношение средней заработной платы работников учреждений культуры к средней заработной плате по субъекту Российской Федерации (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/10">
+  <Methodology>Отношение средней заработной платы работников учреждений культуры к средней заработной плате по субъекту РФ</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Quarterly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Отношение средней заработной платы социальных работников к средней заработной плате по субъекту РФ (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Отношение средней заработной платы социальных работников к средней заработной плате по субъекту Российской Федерации (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/13">
+  <Methodology>Отношение средней заработной платы социальных работников к средней заработной плате по субъекту Российской Федерации</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Quarterly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Отношение средней зарплаты среднего медицинского (фармацевтического) персонала (персонала, обеспечивающего условия для предоставления медицинских услуг) к средней зарплате по субъекту РФ (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Отношение средней заработной платы среднего медицинского (фармацевтического) персонала (персонала, обеспечивающего условия для предоставления медицинских услуг) к средней заработной плате по субъекту Российской Федерации (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/15">
+  <Methodology>Отношение средней заработной платы среднего медицинского (фармацевтического) персонала (персонала, обеспечивающего условия для предоставления медицинских услуг) к средней заработной плате по субъекту Российской Федерации</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Quarterly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Отношение числа российских семей, которые приобрели, или получили доступное и комфортное жилье в течение года, к числу российских семей, желающих улучшить свои жилищные условия (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Отношение числа российских семей, которые приобрели, или получили доступное и комфортное жилье в течение года, к числу российских семей, желающих улучшить свои жилищные условия (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/35">
+  <Methodology>Отношение числа российских семей, которые приобрели, или получили доступное и комфортное жилье в течение года, к числу российских семей, желающих улучшить свои жилищные условия</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Прирост высокопроизводительных рабочих мест (единицы)" actualDate="2014-03-14T00:00:00.000+03:00" name="Прирост высокопроизводительных рабочих мест (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/1">
+  <Methodology>Прирост высокопроизводительных рабочих мест</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="ед" itemId="642" name="Единица"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Прирост высокопроизводительных рабочих мест, в процентах к предыдущему году (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Прирост высокопроизводительных рабочих мест, в процентах к предыдущему году (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/2">
+  <Methodology>Доля количества новых созданных высокопроизводительных рабочих мест в отчетном году в общем количестве созданных высокопроизводительных рабочих мест</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Прирост количества выставочных проектов, осуществляемых в субъектах РФ, относительно уровня 2011 года (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Прирост количества выставочных проектов, осуществляемых в субъектах Российской Федерации, относительно уровня 2011 года (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/17">
+  <Methodology>Отношение количества выставочных проектов в отчетном году к количеству выставочных проектов в 2011 году</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Среднее время ожидания при обращении заявителя в орган государственной власти Российской Федерации (орган местного самоуправления) для получения государственных (муниципальных) услуг (минуты)" actualDate="2014-03-14T00:00:00.000+03:00" name="Среднее время ожидания при обращении заявителя в орган государственной власти Российской Федерации (орган местного самоуправления) для получения государственных (муниципальных) услуг (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/40">
+  <Methodology>Среднее время ожидания при обращении заявителя в орган государственной власти Российской Федерации (орган местного самоуправления) для получения государственных (муниципальных) услуг</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="мин" itemId="355" name="Минута"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Среднее число обращений представителей бизнес-сообщества в орган государственной власти РФ для получения одной государственной  услуги, связанной со сферой предпринимательской деятельности (ед.)" actualDate="2014-03-14T00:00:00.000+03:00" name="Среднее число обращений представителей бизнес-сообщества в орган государственной власти Российской Федерации (орган местного самоуправления) для получения одной государственной (муниципальной) услуги, связанной со сферой предпринимательской деятельности (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/39">
+  <Methodology>Среднее число обращений представителей бизнес-сообщества в орган государственной власти Российской Федерации (орган местного самоуправления) для получения одной государственной (муниципальной) услуги, связанной со сферой предпринимательской деятельности</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="ед" itemId="642" name="Единица"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Средняя стоимость 1 квадратного метра общей площади жилья эконом-класса (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Средняя стоимость 1 квадратного метра общей площади жилья эконом-класса  (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/32">
+  <Methodology>Средняя стоимость 1 квадратного метра общей площади жилья эконом-класса </Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Средняя стоимость 1 квадратного метра общей площади жилья эконом-класса  (рублей)" actualDate="2014-03-14T00:00:00.000+03:00" name="Средняя стоимость 1 квадратного метра общей площади жилья эконом-класса  (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/31">
+  <Methodology>Средняя стоимость 1 квадратного метра общей площади жилья эконом-класса </Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="руб" itemId="383" name="Рубль"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Удельный вес численности высококвалифицированных работников в общей численности квалифицированных работников (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Удельный вес численности высококвалифицированных работников в общей численности квалифицированных работников (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/12">
+  <Methodology>Удельный вес численности высококвалифицированных работников в общей численности квалифицированных работников</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Уровень удовлетворенности граждан РФ качеством предоставления государственных и муниципальных услуг (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Уровень удовлетворенности граждан Российской Федерации качеством предоставления государственных и муниципальных услуг (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/36">
+  <Methodology>Отношение количества граждан Российской Федерации удовлетворенных качеством предоставления государственных и муниципальных услуг от общего количества граждан Российской федерации пользующихся государственными и муниципальными услугами</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Рост реальной заработной платы относительно уровня 2011 года (%)" actualDate="2014-03-14T00:00:00.000+03:00" name="Рост реальной заработной платы относительно уровня 2011 года (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/6">
+  <Methodology>Отношение показателя роста реальной зарабоной платы в отчетном году к показателю роста реальной заработной платы в 2011 году</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="%" itemId="744" name="Процент"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+<Indicator ShortName="Суммарный коэффициент рождаемости (число родившихся на 1 женщину)" actualDate="2014-03-14T00:00:00.000+03:00" name="Суммарный коэффициент рождаемости (по данным РОИВ)" providerRef="GASU" uid="ГАСУ/МУП/Р/41">
+  <Methodology>Число детей родившихся на 1 женщину</Methodology>
+  <TimeSeriesLength>
+    <From>2013-01-01+03:00</From>
+    <To>2014-01-31+03:00</To>
+  </TimeSeriesLength>
+  <LastUpdate>2013-12-31T00:00:00.000+03:00</LastUpdate>
+  <Unit ShortName="ед" itemId="642" name="Единица"/>
+  <Calendar>
+    <Periodicity nextRelease="2014-01-31+03:00" released="2014-01-16+03:00" value="Yearly"/>
+  </Calendar>
+  <AttributesMetadata>
+    <Attribute dataType="string" id="FOIV_COMM" name="Комментарий ФОИВ" required="false"/>
+    <Attribute dataType="string" id="ROIV_COMM" name="Комментарий РОИВ" required="false"/>
+    <Attribute dataType="boolean" id="CONFORMED" name="Признак согласования отчетного значения показателя" required="false"/>
+    <Attribute dataType="string" id="RESP_NAME" name="Наименование ответственного исполнителя/соисполнителя в субъекте РФ" required="false"/>
+  </AttributesMetadata>
+  <Dimensions>
+    <Dimension classifierRef="SP1" description="Субъекты РФ" name="Субъекты РФ" providerRef="GASU" uid="SP1"/>
+    <Dimension classifierRef="SP_ZPMUP" description="Значения показателя мониторинга указов Президента" name="Тип значения показателя МУП" providerRef="GASU" uid="SP_ZPMUP"/>
+  </Dimensions>
+  <ExtraMetadata/>
+</Indicator>
+
+

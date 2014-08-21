@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 
-    ViewBag.AJAXGasuFuncAdress = Url.Action("SendDataToGASU", "Home");
+    ViewBag.DataForGasuFuncAdress = Url.Action("SendDataToGASU", "Home");
 
 }
 @section featured {
@@ -205,7 +205,7 @@
 
     $(document).ready(function () {
         $('#btn_send_to_gasu').click(function () {
-            $.get('@ViewBag.AJAXGasuFuncAdress').done(success);
+            $.get('@ViewBag.DataForGasuFuncAdress').done(success);
         });
     });
 
@@ -230,7 +230,9 @@
 
         if (Verify(data)) {
             
-            $.post('http://188.254.16.92:7777/gateway/services/SID0003565?wsdl', data);
+            $.post('@ViewBag.GASUAdress', data).done(function (data) {
+                alert(data);
+            });
         }
 
     }

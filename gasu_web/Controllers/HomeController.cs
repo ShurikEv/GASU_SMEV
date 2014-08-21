@@ -13,6 +13,8 @@ namespace gasu_web.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.GASUAdress = @"http://188.254.16.92:7777/gateway/services/SID0003565?wsdl";
+
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();
@@ -44,18 +46,18 @@ namespace gasu_web.Controllers
                     {
                         Sender = new GASU.orgExternalType
                         {
-                            Code = "XXXX11111",
-                            Name = "Текстовое наименование участника межведомственного обмена, являющегося владельцем информационной системы."
+                            Code = "DISKK01",
+                            Name = "Автоматизированная информационная система \"Мониторинг социально-экономического развития Краснодарского края\""
                         },
                         Recipient = new GASU.orgExternalType
                         {
-                            Code = "XXXX11111",
-                            Name = "Текстовое наименование участника межведомственного обмена, являющегося владельцем информационной системы."
+                            Code = "DISKK01",
+                            Name = "Автоматизированная информационная система \"Мониторинг социально-экономического развития Краснодарского края\""
                         },
                         Originator = new GASU.orgExternalType
                         {
-                            Code = "XXXX11111",
-                            Name = "Текстовое наименование участника межведомственного обмена, являющегося владельцем информационной системы."
+                            Code = "DISKK01",
+                            Name = "Автоматизированная информационная система \"Мониторинг социально-экономического развития Краснодарского края\""
                         },
                         ServiceName = "",
                         TypeCode = GASU.TypeCodeType.GFNC,
@@ -83,7 +85,7 @@ namespace gasu_web.Controllers
                                 MessageType = GASU.MessageTypeType.ImportFull,
                                 Body = new GASU.AppMessageTypeBody
                                 {
-                                    Items = new object[2]
+                                    Items = new object[2] 
                                 }
                             }
                         }
@@ -91,19 +93,19 @@ namespace gasu_web.Controllers
                 };
                 #endregion
 
-                using (var stream = new StreamWriter(@"E:\Work\git\GASU_SMEV\template_tmp.xml"))
+                using (var stream = new StreamWriter(@"D:\Work\git\GASU_SMEV\template_tmp.xml"))
                 {
                     XmlSerializer serializer = new XmlSerializer(typeof(GASU.GasuMessage));
                     serializer.Serialize(stream, msg);
                 }
 
                 XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load(@"E:\Work\git\GASU_SMEV\template_web.xml");
+                xmlDoc.Load(@"D:\Work\git\GASU_SMEV\template_web.xml");
 
                 var elem = xmlDoc.GetElementsByTagName("s:Body");
 
                 var xmlDoc2 = new XmlDocument();
-                xmlDoc2.Load(@"E:\Work\git\GASU_SMEV\template_tmp.xml");
+                xmlDoc2.Load(@"D:\Work\git\GASU_SMEV\template_tmp.xml");
 
                 var subElem = xmlDoc2.LastChild;
 
@@ -119,9 +121,9 @@ namespace gasu_web.Controllers
 
                 xmlDoc2.PreserveWhitespace = false;
 
-                xmlDoc.Save(@"E:\Work\git\GASU_SMEV\template_tmp.xml");
+                xmlDoc.Save(@"D:\Work\git\GASU_SMEV\template_tmp.xml");
 
-                return System.IO.File.ReadAllText(@"E:\Work\git\GASU_SMEV\template_tmp.xml");
+                return System.IO.File.ReadAllText(@"D:\Work\git\GASU_SMEV\template_tmp.xml");
             }
             return null;
         }
