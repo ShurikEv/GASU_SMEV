@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dd43de4a-a5e1-49ba-99e2-ce72b2fe21e1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c97e3e4c-f594-42e6-a079-7d4f1d37b6a5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,12 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/1.00/wsdl/RKZN03/c89f2c51-e1c8-4bf2-82bb-c41c4a094e16" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="gasu2ws.wsdl" MetadataType="Wsdl" ID="9256d892-b96e-4942-9fe3-4b6cef35e03f" SourceId="1" SourceUrl="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/wsdl" />
-    <MetadataFile FileName="c89f2c51-e1c8-4bf2-82bb-c41c4a094e16.xsd" MetadataType="Schema" ID="a3c30c07-1aa8-49b5-adb4-d77b2283b83e" SourceId="1" SourceUrl="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/1.00/wsdl/RKZN03/c89f2c51-e1c8-4bf2-82bb-c41c4a094e16" />
-    <MetadataFile FileName="a6d89b6c-8ad3-4abd-9961-827d45c195b6.xsd" MetadataType="Schema" ID="847719f7-4cd0-441b-992c-79a4a9708f9d" SourceId="1" SourceUrl="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/1.00/wsdl/RKZN03/a6d89b6c-8ad3-4abd-9961-827d45c195b6" />
+    <MetadataFile FileName="c89f2c51-e1c8-4bf2-82bb-c41c4a094e16.xsd" MetadataType="Schema" ID="ae1fc9a5-78a8-4166-adf5-eeb0e43dc662" SourceId="1" SourceUrl="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/1.00/wsdl/RKZN03/c89f2c51-e1c8-4bf2-82bb-c41c4a094e16" />
+    <MetadataFile FileName="a6d89b6c-8ad3-4abd-9961-827d45c195b6.xsd" MetadataType="Schema" ID="3116c1b2-ca0f-4eb2-b167-398889b8c660" SourceId="1" SourceUrl="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/1.00/wsdl/RKZN03/a6d89b6c-8ad3-4abd-9961-827d45c195b6" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

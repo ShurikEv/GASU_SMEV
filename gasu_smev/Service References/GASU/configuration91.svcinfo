@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="LDJGftlscm9togTvtDYiK0OuMow=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="m0u2jcpNBg9BYR8bR01JvccwFzg=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="gasu2SOAP">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="gasu2SOAP" contract="GASU.gasu2" bindingType="basicHttpBinding" address="http://d00smevapp01:9999/gateway/services/SID0003565" bindingConfiguration="gasu2SOAP">
+    <endpoint name="gasu2SOAP" contract="GASU.gasu2" bindingType="basicHttpBinding" address="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/1.00" bindingConfiguration="gasu2SOAP">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://d00smevapp01:9999/gateway/services/SID0003565</serializedValue>
+          <serializedValue>http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/1.00</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

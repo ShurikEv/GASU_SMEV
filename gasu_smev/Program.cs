@@ -10,69 +10,61 @@ using System.ServiceModel.Security;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * Доработанный пример отправки данных через СМЭВ взятый из 
+ * примеров CryptoPRO .NET SDK (WCF/SMEV)
+ */
+
 namespace gasu_smev
 {
     class Program
     {
+        // слепок серверного сертификата с именем gasu.office.roskazna. Данный сертификат вместе со всей 
+        // цепочкой УЦ должен быть получен от ГАСУ и должен быть импортирован в личное хранилище. Сертификаты
+        // из цепочки должны быть проиимпортиромпортированы в доверенные корневые центры сертификации.
+        private static string serverCertThumbprint = @"‎‎‎‎‎6832f8c782d6356db6adf450998de50c8ec5227f"; 
+
+        // сертификат подписи ЭС. Должен быть импортирован в личное хранилище а так же содержать всю
+        // цепочку УЦ. Сертификаты УЦ так же должны быть проимпортированы.
+        private static string clientCertThumbprint = @"e9a715b1b30dd93c707e4f6ecfd2549fd6d9d78c";
+
+        // адресс тестового сервиса ГАСУ в интернет
+        //private static string serviceUri = @"http://gasu-office.roskazna.ru:80/Gasu2WSTest/gasu2SOAP";
+
+        // адресс промышленного сервиса в интернет
+        private static string serviceUri = @"https://gasu-office.roskazna.ru/Gasu2WSp2p/gasu2SOAP?wsdl";
+
         static void Main(string[] args)
         {
-            X509Store certStore = new X509Store(StoreLocation.CurrentUser);
-            certStore.Open(OpenFlags.ReadOnly);
-            X509Certificate2Collection certs = X509Certificate2UI.SelectFromCollection(
-                certStore.Certificates,
-                "Выберите сертификат",
-                "Пожалуйста, выберите сертификат электронной подписи",
-                X509SelectionFlag.SingleSelection);
-
-            if (certs.Count == 0)
-            {
-                Console.WriteLine("Сертификат не выбран.");
-                return;
-            }
-
             var client = new GASU.gasu2Client();
-            client.ClientCredentials.ClientCertificate.Certificate = certs[0];
-            client.ClientCredentials.ServiceCertificate.DefaultCertificate = certs[0];
 
-            client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
+            X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+            store.Open(OpenFlags.ReadOnly);
+
+            var coll = store.Certificates.Cast<X509Certificate2>().ToArray();
+
+            X509Certificate2 clientCert = coll.FirstOrDefault(x => string.Equals(x.Thumbprint, clientCertThumbprint, StringComparison.InvariantCultureIgnoreCase));
+            X509Certificate2 serverCert = coll.FirstOrDefault(x => string.Equals(x.Thumbprint, serverCertThumbprint, StringComparison.InvariantCultureIgnoreCase));
+
+            client.ClientCredentials.ClientCertificate.Certificate = clientCert;
+            client.ClientCredentials.ServiceCertificate.DefaultCertificate = serverCert;
+
+            client.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = System.ServiceModel.Security.X509CertificateValidationMode.None;
             client.ClientCredentials.ServiceCertificate.Authentication.RevocationMode = X509RevocationMode.NoCheck;
 
-            string serverCommonName = certs[0].GetNameInfo(X509NameType.SimpleName, false);
-            EndpointAddress correctEPAddress = new EndpointAddress(new Uri("http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565?wsdl"),
+
+            string serverCommonName = serverCert.GetNameInfo(X509NameType.SimpleName, false);
+            // DNS имя не совпадает с CommonName из сертификата сервера. Поэтому явно задаем доверие.
+            EndpointAddress myEndpointAddr = new EndpointAddress(new Uri(serviceUri),
                                                                 EndpointIdentity.CreateDnsIdentity(
                                                                 serverCommonName));
-            client.Endpoint.Address = correctEPAddress;
+            client.Endpoint.Address = myEndpointAddr;
 
-
-            //CustomBinding binding = new CustomBinding(client.Endpoint.Binding);
-            //SMEVMessageEncodingBindingElement textBindingElement = new SMEVMessageEncodingBindingElement()
-            //{
-            //    MessageVersion = MessageVersion.CreateVersion(EnvelopeVersion.Soap11, AddressingVersion.None),
-            //    SenderActor = "http://smev.gosuslugi.ru/actors/recipient",
-            //    RecipientActor = "http://smev.gosuslugi.ru/actors/smev"
-            //};
-
-            //binding.Elements.Remove<TextMessageEncodingBindingElement>();
-            //binding.Elements.Insert(0, textBindingElement);
-            ///// Не включаем метку времени в заголовок Security
-            //binding.Elements.Find<AsymmetricSecurityBindingElement>().IncludeTimestamp = false;
-            ///// Говорим WCF, что в сообщении от СМЭВ не нужно искать метку времени и nonce.
-            //binding.Elements.Find<AsymmetricSecurityBindingElement>().LocalClientSettings.DetectReplays = false;
-
-            ///// Устанавливаем модифицированную привязку.
-            //client.Endpoint.Binding = binding;
-
-
-            var msgId = Guid.NewGuid().ToString();
-
-            var datetime = string.Format("{0:yy-mm-ddTHH:mm:ss.Ms}+04:00", DateTime.Now);
-            var dateTime2 = string.Format("{0:yy-mm-ddTHH:mm:ss}", DateTime.Now);
 
             client.ChannelFactory.Endpoint.Contract.ProtectionLevel = ProtectionLevel.Sign;
 
-
-            Publish(client, msgId);
-           // Query(client, msgId);
+            Publish(client, Guid.NewGuid().ToString());
+            store.Close();
         }
 
         private static void Query(GASU.gasu2Client client, string msgId)
@@ -84,24 +76,24 @@ namespace gasu_smev
                 {
                     Sender = new GASU.orgExternalType
                     {
-                        Code = "DISKK01",
-                        Name = "Автоматизированная информационная система \"Мониторинг социально-экономического развития Краснодарского края\""
+                        Code = "<Код зарегистрированной системы-поставщика>",
+                        Name = "<Наименование зарегистрированной системы-поставщика>"
                     },
                     Recipient = new GASU.orgExternalType
                     {
-                        Code = "DISKK01",
-                        Name = "Автоматизированная информационная система \"Мониторинг социально-экономического развития Краснодарского края\""
+                        Code = "<Код зарегистрированной системы-поставщика>",
+                        Name = "<Наименование зарегистрированной системы-поставщика>"
                     },
                     Originator = new GASU.orgExternalType
                     {
-                        Code = "DISKK01",
-                        Name = "Автоматизированная информационная система \"Мониторинг социально-экономического развития Краснодарского края\""
+                        Code = "<Код зарегистрированной системы-поставщика>",
+                        Name = "<Наименование зарегистрированной системы-поставщика>"
                     },
                     ServiceName = "",
                     TypeCode = GASU.TypeCodeType.GFNC,
                     Status = GASU.StatusType.REQUEST,
                     Date = DateTime.Now,
-                    ExchangeType = "", // compleate!!
+                    
                     RequestIdRef = msgId,
                     OriginRequestIdRef = msgId,
                     ServiceCode = "",
@@ -116,8 +108,8 @@ namespace gasu_smev
                         {
                             AppHeader = new GASU.AppHeaderType
                             {
-                                DataSourceRef = "DISKK01",
-                                ID = "DISKK01",
+                                DataSourceRef = "<Код зарегистрированной системы-поставщика>",
+                                ID = "<Код зарегистрированной системы-поставщика>",
                                 HeaderInfo = new GASU.AppDataType()
                             },
                             Query = new GASU.QueryType
@@ -150,29 +142,28 @@ namespace gasu_smev
                 {
                     Sender = new GASU.orgExternalType
                     {
-                        Code = "DISKK01",
-                        Name = "Автоматизированная информационная система \"Мониторинг социально-экономического развития Краснодарского края\""
+                        Code = "<Код зарегистрированной системы-поставщика>",
+                        Name = "<Наименование зарегистрированной системы-поставщика>"
                     },
                     Recipient = new GASU.orgExternalType
                     {
-                        Code = "DISKK01",
-                        Name = "Автоматизированная информационная система \"Мониторинг социально-экономического развития Краснодарского края\""
+                        Code = "<Код зарегистрированной системы-поставщика>",
+                        Name = "<Наименование зарегистрированной системы-поставщика>"
                     },
                     Originator = new GASU.orgExternalType
                     {
-                        Code = "DISKK01",
-                        Name = "Автоматизированная информационная система \"Мониторинг социально-экономического развития Краснодарского края\""
+                        Code = "<Код зарегистрированной системы-поставщика>",
+                        Name = "<Наименование зарегистрированной системы-поставщика>"
                     },
                     ServiceName = "",
                     TypeCode = GASU.TypeCodeType.GFNC,
                     Status = GASU.StatusType.REQUEST,
                     Date = DateTime.Now,
-                    ExchangeType = "", // compleate!!
                     RequestIdRef = msgId,
                     OriginRequestIdRef = msgId,
                     ServiceCode = "",
                     CaseNumber = "",
-                    TestMsg = ""
+                    TestMsg = "true"
                 },
                 MessageData = new GASU.GasuMessageMessageData
                 {
@@ -182,8 +173,8 @@ namespace gasu_smev
                         {
                             AppHeader = new GASU.AppHeaderType
                             {
-                                ID = "DISKK01",
-                                DataSourceRef = "DISKK01",
+                                ID = "<Код зарегистрированной системы-поставщика>",
+                                DataSourceRef = "<Код зарегистрированной системы-поставщика>",
                                 HeaderInfo = new GASU.AppDataType()
                             },
                             MessageType = GASU.MessageTypeType.ImportFull,
@@ -193,7 +184,7 @@ namespace gasu_smev
                                 {
                                     new GASU.DataSetType 
                                     {
-                                        indicatorRef = "ГАСУ/МУП/Р/1",
+                                        indicatorRef = "ГАСУ/МУП/Р/16",
                                         providerRef = "GASU",
                                         prepareTime = DateTime.Now,
                                         uid = Guid.NewGuid().ToString(),
@@ -211,7 +202,7 @@ namespace gasu_smev
                                                     new GASU.SeriesTypeSeriesKeyItem 
                                                     {
                                                         DimensionRef="SP_ZPMUP",
-                                                        Value = "3"
+                                                        Value = "1"
                                                     }
                                                 },
                                                 Observation = new GASU.SeriesTypeObservation 
@@ -219,7 +210,7 @@ namespace gasu_smev
                                                     Time = "2014",
                                                     ObsValue = new GASU.ObsValueType
                                                     {
-                                                        ValueVc = 3,
+                                                        ValueVc = 447,
                                                         ValueVcSpecified = true,
                                                         ValueVo = 0,
                                                         ValueVoSpecified = true,
@@ -230,45 +221,22 @@ namespace gasu_smev
                                             }
                                         }
                                     },
-                                    //new GASU.DataSetType 
-                                    //{
-                                    //    indicatorRef = "ГАСУ/МУП/Р/2",
-                                    //    providerRef = "GASU",
-                                    //    prepareTime = DateTime.Now,
-                                    //    uid = Guid.NewGuid().ToString(),
-                                    //    Series = new GASU.SeriesType[] 
-                                    //    {
-                                    //        new GASU.SeriesType
-                                    //        {
-                                    //            SeriesKey = new GASU.SeriesTypeSeriesKeyItem[] 
-                                    //            {
-                                    //                new GASU.SeriesTypeSeriesKeyItem 
-                                    //                {
-                                    //                    DimensionRef = "SP1",
-                                    //                    Value = "0300"
-                                    //                }
-                                    //            },
-                                    //            Observation = new GASU.SeriesTypeObservation 
-                                    //            {
-                                    //                Time = "2014-05",
-                                    //                ObsValue = new GASU.ObsValueType
-                                    //                {
-                                    //                    ValueVc = 24.5d,
-                                    //                    ValueVcSpecified = true
-                                    //                }
-                                    //            }
-                                    //        }
-                                    //    }
-                                    //}
+                                    
                                 }
                             }
                         }
                     }
                 }
             };
-
-            client.publish(msg);
             #endregion
+            try
+            {
+                var result = client.publish(msg);
+            }
+            catch (Exception e)
+            {   
+            }
+
         }
     }
 }

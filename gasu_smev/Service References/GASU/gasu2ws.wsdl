@@ -2,7 +2,7 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:gasu2ws="http://www.government.ru/gasu2/services" xmlns:smev="http://smev.gosuslugi.ru/rev120315" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://www.w3.org/2004/08/xop/include" name="gasu2ws" targetNamespace="http://smev.gosuslugi.ru/rev120315" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://smev.gosuslugi.ru/rev120315">
-      <xsd:include schemaLocation="SID0003565/N360171173/OwsmImport.xsd" />
+      <xsd:include schemaLocation="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/1.00/wsdl/RKZN03/c89f2c51-e1c8-4bf2-82bb-c41c4a094e16" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="publishRequest">
@@ -69,7 +69,7 @@
   </wsdl:binding>
   <wsdl:service name="gasu2SOAP">
     <wsdl:port name="gasu2SOAP" binding="smev:gasu2SOAP">
-      <soap:address location="http://d00smevapp01:9999/gateway/services/SID0003565" />
+      <soap:address location="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/1.00" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

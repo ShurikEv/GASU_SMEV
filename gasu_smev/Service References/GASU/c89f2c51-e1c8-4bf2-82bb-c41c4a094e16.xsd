@@ -1,0 +1,1929 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:smev="http://smev.gosuslugi.ru/rev120315" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://smev.gosuslugi.ru/rev120315" version="2.5.6" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="http://smev-mvf.test.gosuslugi.ru:7777/gateway/services/SID0003565/1.00/wsdl/RKZN03/a6d89b6c-8ad3-4abd-9961-827d45c195b6" namespace="http://www.w3.org/2004/08/xop/include" />
+  <simpleType name="UIDType">
+    <annotation>
+      <documentation>Уникальный идентификатор объектов</documentation>
+    </annotation>
+    <restriction base="string">
+      <pattern value="[\w\./\-_]+" />
+    </restriction>
+  </simpleType>
+  <simpleType name="EMailAddressType">
+    <restriction base="string">
+      <pattern value="[A-Za-z0-9_]+([-+.'][A-Za-z0-9_]+)*@[A-Za-z0-9_]+([-.][A-Za-z0-9_]+)*\.[A-Za-z0-9_]+([-.][A-Za-z0-9_]+)*" />
+    </restriction>
+  </simpleType>
+  <simpleType name="PeriodType">
+    <annotation>
+      <documentation>Список временных периодов: Кварталы (Quarterly): Q1, Q2, Q3, Q4; Недели (Weekly): W1 - W52; Полугодия (Biannual): B1, B2. Данные значения указываются после четырехзначного обозначения года через тире (например, 2005-Q1).</documentation>
+    </annotation>
+    <restriction base="string">
+      <pattern value="(\d\d\d\d\-Q1|\d\d\d\d\-Q2|\d\d\d\d\-Q3|\d\d\d\d\-Q4|\d\d\d\d\-B1|\d\d\d\d\-B2|\d\d\d\d\-W1|\d\d\d\d\-W2|\d\d\d\d\-W3|\d\d\d\d\-W4|\d\d\d\d\-W5|\d\d\d\d\-W6|\d\d\d\d\-W7|\d\d\d\d\-W8|\d\d\d\d\-W9|\d\d\d\d\-W10|\d\d\d\d\-W11|\d\d\d\d\-W12|\d\d\d\d\-W13|\d\d\d\d\-W14|\d\d\d\d\-W15|\d\d\d\d\-W16|\d\d\d\d\-W17|\d\d\d\d\-W18|\d\d\d\d\-W19|\d\d\d\d\-W20|\d\d\d\d\-W21|\d\d\d\d\-W22|\d\d\d\d\-W23|\d\d\d\d\-W24|\d\d\d\d\-W25|\d\d\d\d\-W26|\d\d\d\d\-W27|\d\d\d\d\-W28|\d\d\d\d\-W29|\d\d\d\d\-W30|\d\d\d\d\-W31|\d\d\d\d\-W32|\d\d\d\d\-W33|\d\d\d\d\-W34|\d\d\d\d\-W35|\d\d\d\d\-W36|\d\d\d\d\-W37|\d\d\d\d\-W38|\d\d\d\d\-W39|\d\d\d\d\-W40|\d\d\d\d\-W41|\d\d\d\d\-W42|\d\d\d\d\-W43|\d\d\d\d\-W44|\d\d\d\d\-W45|\d\d\d\d\-W46|\d\d\d\d\-W47|\d\d\d\d\-W48|\d\d\d\d\-W49|\d\d\d\d\-W50|\d\d\d\d\-W51|\d\d\d\d\-W52|\d\d\d\d\-W53)" />
+    </restriction>
+  </simpleType>
+  <simpleType name="TimeType">
+    <union memberTypes="date gYearMonth gYear smev:PeriodType" />
+  </simpleType>
+  <complexType name="DateIntervalType">
+    <annotation>
+      <documentation>Временной интервал</documentation>
+    </annotation>
+    <sequence>
+      <element name="From" type="date">
+        <annotation>
+          <documentation>Дата начала временного интервала</documentation>
+        </annotation>
+      </element>
+      <element name="To" type="date">
+        <annotation>
+          <documentation>Дата окончания временного интервала</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="DateTimeIntervalType">
+    <annotation>
+      <documentation>Временной интервал</documentation>
+    </annotation>
+    <sequence>
+      <element name="From" type="dateTime">
+        <annotation>
+          <documentation>Дата начала временного интервала</documentation>
+        </annotation>
+      </element>
+      <element name="To" type="dateTime">
+        <annotation>
+          <documentation>Дата окончания временного интервала</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PersonType">
+    <annotation>
+      <documentation>Публичная информация о персоне</documentation>
+    </annotation>
+    <sequence>
+      <element name="Name" type="string">
+        <annotation>
+          <documentation>ФИО персоны</documentation>
+        </annotation>
+      </element>
+      <element name="Phone" type="string">
+        <annotation>
+          <documentation>Контактный номер телефона</documentation>
+        </annotation>
+      </element>
+      <element name="EMail" type="smev:EMailAddressType">
+        <annotation>
+          <documentation>Контактный адрес электронной почты</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="Position" type="string">
+        <annotation>
+          <documentation>Должность персоны</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="Comments" type="string">
+        <annotation>
+          <documentation>Дополнительная контакная информация в произвольной форме</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="OrganizationType">
+    <annotation>
+      <documentation>
+    			Описание организации-участника информационного обмена в
+    			рамках ГАСУ
+    		</documentation>
+    </annotation>
+    <sequence>
+      <element name="Name" type="string">
+        <annotation>
+          <documentation>Название организации</documentation>
+        </annotation>
+      </element>
+      <element name="Code" type="string">
+        <annotation>
+          <documentation>
+    					Код главы бюджетной классификации ФОИВ
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="Contacts">
+        <annotation>
+          <documentation>Контактная информация</documentation>
+        </annotation>
+        <complexType>
+          <annotation>
+            <documentation>
+    						Контактная информация
+    					</documentation>
+          </annotation>
+          <sequence>
+            <element minOccurs="0" name="URI" type="anyURI">
+              <annotation>
+                <documentation>
+    								Контактный URI
+    							</documentation>
+              </annotation>
+            </element>
+            <element minOccurs="0" name="Address" type="string">
+              <annotation>
+                <documentation>
+    								Адрес организации
+    							</documentation>
+              </annotation>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" name="Person" type="smev:PersonType">
+              <annotation>
+                <documentation>
+    								Контакное лицо
+    							</documentation>
+              </annotation>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+    <attribute name="uid" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>Идентификатор организации</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="actualDate" type="dateTime" />
+  </complexType>
+  <complexType name="ObsValueType">
+    <annotation>
+      <documentation>
+    			Наблюдаемое значение показателя
+    		</documentation>
+    </annotation>
+    <sequence>
+      <element minOccurs="0" name="ValueVo" type="double" />
+      <element minOccurs="0" name="ValueVs" type="double" />
+      <element minOccurs="0" name="ValueVc" type="double" />
+    </sequence>
+  </complexType>
+  <complexType name="DataSourceType">
+    <annotation>
+      <documentation>
+    			С??едения об информационной системе, являющейся
+    			поставщиком данных в ГАСУ (значения показателей,
+    			сформированные отчеты и пр.)
+    		</documentation>
+    </annotation>
+    <sequence>
+      <element name="Name" type="string">
+        <annotation>
+          <documentation>
+    					Наименование информационной системы
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="ShortName" type="string">
+        <annotation>
+          <documentation>
+    					Краткое наименование информационной системы,
+    					отражающее суть хранящейся в ней информации
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="Description" type="string">
+        <annotation>
+          <documentation>
+    					Текстовое описание информационной системы
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="ContentDescription" type="string">
+        <annotation>
+          <documentation>
+    					Текстовое описание состава и сути данных,
+    					которые хранятся в базе данных
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="RegistrationDate" type="date">
+        <annotation>
+          <documentation>
+    					Дата регистрации информационной системы в ГАСУ
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="Level" type="smev:DataSourceLevel">
+        <annotation>
+          <documentation>
+    					Федеральная/региональная/местная информационная
+    					система
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="TimeSeriesLength" type="smev:DateIntervalType">
+        <annotation>
+          <documentation>
+    					Период, за который хранятся данные в
+    					информационной системе
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="RegistryNumber" type="string">
+        <annotation>
+          <documentation>
+    					Реестровый номер информационной системы из
+    					Реестра федеральных государственных/региональных
+    					информационных систем
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="OwnerName" type="string">
+        <annotation>
+          <documentation>
+    					Наименование ФОИВ, РОИВ, ОМСУ владельца данных
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="ContentType" type="smev:DataSourceContentType">
+        <annotation>
+          <documentation>
+    					Степень конфиденциальности данных хранящихся в
+    					информационной системе
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="LastUpdate" type="dateTime">
+        <annotation>
+          <documentation>
+    					Дата последнего обновления сведений об
+    					информационной системе
+    				</documentation>
+        </annotation>
+      </element>
+      <choice>
+        <element name="OrganizationRef" type="smev:UIDType">
+          <annotation>
+            <documentation>
+    						Идентификатор организации, являющейся
+    						владельцем данной ИС, под которым данная
+    						организация зарегистрирована в ГАСУ
+    					</documentation>
+          </annotation>
+        </element>
+        <element name="Organization" type="smev:OrganizationType">
+          <annotation>
+            <documentation>
+    						Сведения об организации, являющейся
+    						владельцем информационной системы
+    					</documentation>
+          </annotation>
+        </element>
+      </choice>
+      <element minOccurs="0" name="DescriptionCreator" type="smev:PersonType">
+        <annotation>
+          <documentation>
+    					Ответственное лицо за формирование описания
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="URI" type="anyURI">
+        <annotation>
+          <documentation>
+    					Ссылка, позволяющая получить доступ к
+    					описываемой информационной системе
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="InfoServices">
+        <annotation>
+          <documentation>
+    					Описание электронных сервисов по получению
+    					данных из информационной систем
+    				</documentation>
+        </annotation>
+        <complexType>
+          <annotation>
+            <documentation>
+    						Описание электронных сервисов по получению
+    						данных из информационной систем
+    					</documentation>
+          </annotation>
+          <sequence>
+            <element maxOccurs="unbounded" name="ServiceInfo" type="smev:ServiceInfoType">
+              <annotation>
+                <documentation>
+    								Сведения об организации, являющейся
+    								владельцем информационной системы
+    							</documentation>
+              </annotation>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element minOccurs="0" name="Suppliers">
+        <annotation>
+          <documentation>
+    					Сведения о поставщиках данных в базу данных
+    				</documentation>
+        </annotation>
+        <complexType>
+          <annotation>
+            <documentation>
+    						Сведения о поставщиках данных в базу данных
+    					</documentation>
+          </annotation>
+          <sequence>
+            <choice>
+              <element maxOccurs="unbounded" name="SupplierRef" type="smev:UIDType">
+                <annotation>
+                  <documentation>
+    									Идентификатор организации,
+    									являющейся владельцем данной ИС,
+    									под которым данная организация
+    									зарегистрирована в ГАСУ
+    								</documentation>
+                </annotation>
+              </element>
+              <element maxOccurs="unbounded" name="Supplier" type="smev:OrganizationType">
+                <annotation>
+                  <documentation>
+    									Сведения об организации,
+    									являющейся владельцем
+    									информационной системы
+    								</documentation>
+                </annotation>
+              </element>
+            </choice>
+          </sequence>
+        </complexType>
+      </element>
+      <element minOccurs="0" name="ExtraMetadata" type="smev:ExtraMetadataType" />
+    </sequence>
+    <attribute name="uid" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Уникальный идентификатор системы
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="actualDate" type="dateTime" />
+  </complexType>
+  <complexType name="DimensionType">
+    <annotation>
+      <documentation>
+    			Описание измерения. Ссылка на концепт и ссылка на
+    			справочник
+    		</documentation>
+    </annotation>
+    <attribute name="uid" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Уникальный идентификатор измерения
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="name" type="string" use="required">
+      <annotation>
+        <documentation>Название измерения</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="description" type="string">
+      <annotation>
+        <documentation>
+    				Текстовое описание измерения
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="classifierRef" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Ссылка на классификатор, определяющий значения
+    				измерения (в случае применимости)
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="providerRef" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Ссылка на информационную систему, предоставляющую
+    				информацию о данном измерении
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="actualDate" type="dateTime" />
+  </complexType>
+  <complexType name="IndicatorType">
+    <annotation>
+      <documentation>
+    			Метаданные показателя, используемого в рамках ГАСУ
+    		</documentation>
+    </annotation>
+    <sequence>
+      <element minOccurs="0" name="Methodology" type="string">
+        <annotation>
+          <documentation>
+    					Текстовое описание методики расчета показателя
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="TimeSeriesLength" type="smev:DateIntervalType">
+        <annotation>
+          <documentation>
+    					Интервал времени, за который накоплены данные по
+    					показателю
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="LastUpdate" type="dateTime">
+        <annotation>
+          <documentation>
+    					Дата последнего обновления данных по показателю
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="Unit">
+        <annotation>
+          <documentation>
+    					Единица измерения показателя
+    				</documentation>
+        </annotation>
+        <complexType>
+          <annotation>
+            <documentation>
+    						Описание единицы измерения
+    					</documentation>
+          </annotation>
+          <attribute name="name" type="string" use="optional">
+            <annotation>
+              <documentation>
+    							Название единицы измерения
+    						</documentation>
+            </annotation>
+          </attribute>
+          <attribute name="ShortName" type="string">
+            <annotation>
+              <documentation>
+    							Краткое наименование единицы измерения
+    						</documentation>
+            </annotation>
+          </attribute>
+          <attribute name="itemId" type="smev:UIDType" use="required">
+            <annotation>
+              <documentation>
+    							Код единицы измерения по справочнику
+    							ОКЕИ
+    						</documentation>
+            </annotation>
+          </attribute>
+        </complexType>
+      </element>
+      <element minOccurs="1" name="Calendar">
+        <annotation>
+          <documentation>
+    					Периодичность сбора показателя
+    				</documentation>
+        </annotation>
+        <complexType>
+          <sequence>
+            <element maxOccurs="unbounded" name="Periodicity">
+              <complexType>
+                <annotation>
+                  <documentation>
+    									Периодичность сбора данных
+    								</documentation>
+                </annotation>
+                <attribute name="value" type="smev:PeriodicityType" use="required">
+                  <annotation>
+                    <documentation>
+    										Периодичность
+    									</documentation>
+                  </annotation>
+                </attribute>
+                <attribute name="released" type="date">
+                  <annotation>
+                    <documentation>
+    										Дата последнего обновления
+    										данных показателя в
+    										соответствии с
+    										периодичностью
+    									</documentation>
+                  </annotation>
+                </attribute>
+                <attribute name="nextRelease" type="date" use="required">
+                  <annotation>
+                    <documentation>
+    										Ближайшая следующая дата
+    										обновления данных показателя
+    										в соответствии с
+    										периодичностью
+    									</documentation>
+                  </annotation>
+                </attribute>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element minOccurs="0" name="AttributesMetadata" type="smev:AttributesMetadataType">
+        <annotation>
+          <documentation>
+    					Описание дополнительных атрибутов связанных с
+    					измерением показателя
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="Dimensions">
+        <annotation>
+          <documentation>
+    					Список измерений, связанных с показателем
+    				</documentation>
+        </annotation>
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="unbounded" name="DimensionRef" type="smev:UIDType">
+              <annotation>
+                <documentation>
+    								Идентификатор измерения
+    							</documentation>
+              </annotation>
+            </element>
+            <element minOccurs="0" maxOccurs="unbounded" name="Dimension" type="smev:DimensionType">
+              <annotation>
+                <documentation>
+    								Сведения об организации, являющейся
+    								владельцем информационной системы
+    							</documentation>
+              </annotation>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element minOccurs="0" name="ExtraMetadata" type="smev:ExtraMetadataType" />
+    </sequence>
+    <attribute name="uid" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Уникальный идентификатор показателя
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="name" type="string" use="required">
+      <annotation>
+        <documentation>Название показателя</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="ShortName" type="string">
+      <annotation>
+        <documentation>
+    				Краткое наиметование показателя
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="providerRef" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Ссылка на информационную систему, предоставляющую
+    				информацию о данном показателе
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="actualDate" type="dateTime" />
+  </complexType>
+  <simpleType name="MessageTypeType">
+    <annotation>
+      <documentation>Тип взаимодействия</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="ImportFull" />
+      <enumeration value="ImportDelta" />
+      <enumeration value="Delete" />
+    </restriction>
+  </simpleType>
+  <simpleType name="DataSourceLevel">
+    <annotation>
+      <documentation>Федеральная/региональная/местная информационная система</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Federal" />
+      <enumeration value="Regional" />
+      <enumeration value="Local" />
+    </restriction>
+  </simpleType>
+  <simpleType name="DataSourceContentType">
+    <annotation>
+      <documentation>Степень конфиденциальности данных хранящихся в информационной системе</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="Public" />
+      <enumeration value="Private" />
+      <enumeration value="Secret" />
+    </restriction>
+  </simpleType>
+  <complexType name="AppHeaderType">
+    <annotation>
+      <documentation>Заголовок сообщений информационного обмена в рамках ГАСУ</documentation>
+    </annotation>
+    <sequence>
+      <element name="ID" type="smev:UIDType">
+        <annotation>
+          <documentation>Уникальный идентификатор электронного сообщения</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="DataSourceRef" type="smev:UIDType">
+        <annotation>
+          <documentation>Ссылка на источник данных, с которым связано данное сообщение</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="HeaderInfo" type="smev:AppDataType">
+        <annotation>
+          <documentation>Блок структурированных сведений</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="SeriesType">
+    <annotation>
+      <documentation>Данные показателя в виде значений измерений, наблюдаемого значения и дополнительных признаков, связанных со значением</documentation>
+    </annotation>
+    <sequence>
+      <element minOccurs="0" name="SeriesKey">
+        <annotation>
+          <documentation>Идентифицирующий набор значений измерений серии</documentation>
+        </annotation>
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="unbounded" name="SeriesKeyItem">
+              <complexType>
+                <simpleContent>
+                  <extension base="string">
+                    <attribute name="DimensionRef" type="smev:UIDType" use="required">
+                      <annotation>
+                        <documentation>Cсылка на измерение</documentation>
+                      </annotation>
+                    </attribute>
+                  </extension>
+                </simpleContent>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Observation">
+        <annotation>
+          <documentation>Значение измерения показателя</documentation>
+        </annotation>
+        <complexType>
+          <sequence>
+            <element name="Time" type="smev:TimeType">
+              <annotation>
+                <documentation>Значение времени, связанное с измерением показателя (для случая временных рядов)</documentation>
+              </annotation>
+            </element>
+            <element minOccurs="0" name="Attributes" type="smev:AttributesType">
+              <annotation>
+                <documentation>Дополнительные атрибуты, связанные с измерением</documentation>
+              </annotation>
+            </element>
+            <element name="ObsValue" type="smev:ObsValueType">
+              <annotation>
+                <documentation>Значение измерения</documentation>
+              </annotation>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="ClassifierType">
+    <annotation>
+      <documentation>
+    			Метаданные классификатора,реестра или справочника,
+    			используемого в рамках информационного обмена
+    		</documentation>
+    </annotation>
+    <sequence>
+      <element name="Name" type="string">
+        <annotation>
+          <documentation>
+    					Наименование классификатора
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="Description" type="string">
+        <annotation>
+          <documentation>
+    					Текстовое описание классификатора
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="Version" type="string">
+        <annotation>
+          <documentation>
+    					Текущая версия классификатора
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="LastModified" type="dateTime">
+        <annotation>
+          <documentation>
+    					Дата внесения последних изменений в
+    					классификатор
+    				</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="AttributesMetadata" type="smev:AttributesMetadataType">
+        <annotation>
+          <documentation>
+    					Описание дополнительных атрибутов элементов
+    					классификатора
+    				</documentation>
+        </annotation>
+      </element>
+    </sequence>
+    <attribute name="uid" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Уникальный код классификатора
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="providerRef" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Ссылка на информационную систему, предоставляющую
+    				информацию о данном классификаторе
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="hierarchical" type="boolean" use="optional">
+      <annotation>
+        <documentation>
+    				признак иерархического классификатора
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="actualDate" type="dateTime" />
+  </complexType>
+  <complexType name="ClassifierItemsType">
+    <annotation>
+      <documentation>
+    			Список элементов классификатора
+    		</documentation>
+    </annotation>
+    <sequence>
+      <element maxOccurs="unbounded" name="Item">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" name="Period" type="smev:DateIntervalType">
+              <annotation>
+                <documentation>
+    								Период действия данной версии
+    								элемента классификатора
+    							</documentation>
+              </annotation>
+            </element>
+            <element minOccurs="1" name="Description" type="string">
+              <annotation>
+                <documentation>
+    								Текстовое описание элемента
+    								классификатора
+    							</documentation>
+              </annotation>
+            </element>
+            <element minOccurs="0" name="Attributes" type="smev:AttributesType">
+              <annotation>
+                <documentation>
+    								Список дополнительных атрибутов
+    								элемента классификатора
+    							</documentation>
+              </annotation>
+            </element>
+          </sequence>
+          <attribute name="uid" type="smev:UIDType" use="required">
+            <annotation>
+              <documentation>
+    							Значение кода элемента классификатора
+    						</documentation>
+            </annotation>
+          </attribute>
+          <attribute name="parent" type="string">
+            <annotation>
+              <documentation>
+    							Код родительского значения
+    							классификатора. Применимо для
+    							иерархических классификаторов
+    						</documentation>
+            </annotation>
+          </attribute>
+        </complexType>
+      </element>
+    </sequence>
+    <attribute name="classifierRef" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>Ссылка на кл??ссификатор</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="providerRef" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Ссылка на информационную систему, предоставляющую
+    				информацию о присылаемом наборе элементов
+    				классификатора
+    			</documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+  <complexType name="DataSetType">
+    <annotation>
+      <documentation>Набор значений показателя</documentation>
+    </annotation>
+    <sequence>
+      <element maxOccurs="unbounded" name="Series" type="smev:SeriesType">
+        <annotation>
+          <documentation>Набор серий данных</documentation>
+        </annotation>
+      </element>
+    </sequence>
+    <attribute name="uid" type="smev:GUIDType" use="required">
+      <annotation>
+        <documentation>
+    				Уникальный идентификатор набора
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="providerRef" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Ссылка на информационную систему, которая
+    				предоставляет набор данных
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="indicatorRef" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>
+    				Ссылка на показатель, связанный с набором данных
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="prepareTime" type="dateTime" use="required">
+      <annotation>
+        <documentation>
+    				дата подготовки набора данных
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="status" type="int" use="optional">
+      <annotation>
+        <documentation>Статус набора данных</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="pagingTotal" type="int" />
+  </complexType>
+  <complexType name="ServiceInfoType">
+    <annotation>
+      <documentation>Сведения об электронном сервисе</documentation>
+    </annotation>
+    <sequence>
+      <element name="Name" type="string">
+        <annotation>
+          <documentation>Наименование электронного сервиса</documentation>
+        </annotation>
+      </element>
+      <element name="Description" type="string">
+        <annotation>
+          <documentation>Описание электронного сервиса</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="URI" type="anyURI">
+        <annotation>
+          <documentation>Адрес, по которому доступен электронный сервис</documentation>
+        </annotation>
+      </element>
+    </sequence>
+    <attribute name="uid" type="smev:UIDType" use="required">
+      <annotation>
+        <documentation>Уникальный идентификатор сервиса</documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+  <complexType name="GasuResponseType">
+    <annotation>
+      <documentation>
+    			Извещение, содержащее результаты приема сообщения
+    			отправителя, либо содержащее причины отказа в обработке
+    		</documentation>
+    </annotation>
+    <sequence>
+      <element name="RequestID" type="smev:UIDType">
+        <annotation>
+          <documentation>
+    					Идентификатор сообщения, в ответ на которое
+    					сформирован данный о??вет
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="GasuResponseCode" type="string">
+        <annotation>
+          <documentation>
+    					Код ответа, определяющий результаты обработки
+    					запроса в ГАСУ
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="GasuResponseMessage" type="string">
+        <annotation>
+          <documentation>
+    					??екстовое сообщение, которое может содержать
+    					дополнительную информацию о результатах
+    					обработки сообщения
+    				</documentation>
+        </annotation>
+      </element>
+      <choice>
+        <element name="PublishResponse" type="smev:PublishResponseType" />
+        <element name="QueryResponse" type="smev:QueryResponseType" />
+        <element name="UpdatesResponse" type="smev:UpdatesResponseType" />
+      </choice>
+    </sequence>
+  </complexType>
+  <complexType name="AppMessageType">
+    <annotation>
+      <documentation>Электронное сообщение для информационного взаимодействия в рамках ГАСУ</documentation>
+    </annotation>
+    <sequence>
+      <element name="AppHeader" type="smev:AppHeaderType">
+        <annotation>
+          <documentation>Заголовок электронного сообщения</documentation>
+        </annotation>
+      </element>
+      <element name="MessageType" type="smev:MessageTypeType">
+        <annotation>
+          <documentation>Тип сообщения</documentation>
+        </annotation>
+      </element>
+      <element name="Body">
+        <annotation>
+          <documentation>Тело электронного сообщения</documentation>
+        </annotation>
+        <complexType>
+          <choice>
+            <element maxOccurs="unbounded" name="Organization" type="smev:OrganizationType" />
+            <element maxOccurs="unbounded" name="DataSource" type="smev:DataSourceType" />
+            <element maxOccurs="unbounded" name="Classifier" type="smev:ClassifierType" />
+            <element maxOccurs="unbounded" name="ClassifierItems" type="smev:ClassifierItemsType" />
+            <element maxOccurs="unbounded" name="Dimension" type="smev:DimensionType" />
+            <element maxOccurs="unbounded" name="Indicator" type="smev:IndicatorType" />
+            <element maxOccurs="unbounded" name="DataSet" type="smev:DataSetType" />
+            <element maxOccurs="unbounded" name="Delete" type="smev:DeleteType" />
+          </choice>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="AppUpdatesMessageType">
+    <annotation>
+      <documentation>Электронное сообщение для информационного взаимодействия в рамках ГАСУ</documentation>
+    </annotation>
+    <sequence>
+      <element name="AppHeader" type="smev:AppHeaderType">
+        <annotation>
+          <documentation>Заголовок электронного сообщения</documentation>
+        </annotation>
+      </element>
+      <element name="UpdatesFilter" type="smev:UpdatesFilterType">
+        <annotation>
+          <documentation>Тело электронного сообщения</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <element name="GasuMessage">
+    <complexType>
+      <sequence>
+        <element ref="smev:Message" />
+        <element name="MessageData">
+          <complexType>
+            <sequence>
+              <element name="AppData">
+                <complexType>
+                  <sequence>
+                    <element name="AppMessage" type="smev:AppMessageType" />
+                  </sequence>
+                </complexType>
+              </element>
+              <element minOccurs="0" ref="smev:AppDocument" />
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="GasuTicket">
+    <complexType>
+      <sequence>
+        <element ref="smev:Message" />
+        <element name="MessageData">
+          <complexType>
+            <sequence>
+              <element name="AppData">
+                <complexType>
+                  <sequence>
+                    <element name="GasuResponse" type="smev:GasuResponseType" />
+                  </sequence>
+                </complexType>
+              </element>
+              <element minOccurs="0" ref="smev:AppDocument" />
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+  <simpleType name="SpecialQueryType">
+    <annotation>
+      <documentation>Специализированный запрос к ГАСУ, означающий любой объект некоторого типа 
+(тип запрашиваемого объекта определяется по атрибуту returnType у элемента Query)</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="*" />
+    </restriction>
+  </simpleType>
+  <simpleType name="UIDExtendedType">
+    <annotation>
+      <documentation>Значение данного элемента может содержать либо идентификатор объекта ГАСУ, либо специализированный символ для запроса всех объектов</documentation>
+    </annotation>
+    <union memberTypes="smev:SpecialQueryType smev:UIDType" />
+  </simpleType>
+  <simpleType name="ObjectTypeType">
+    <annotation>
+      <documentation>Указание типа объектов, которые необходимо вернуть в результате запроса. Допустимы следующие значения:
+ dataset - наборы данных по показателям
+ datasource - источники данных
+ serviceinfo - электронные сервисы
+ indicator - метаданные показателей
+ classifier - метаданные по справочникам, классификаторам
+ classifieritems - данные справочников, классификаторов
+ dimension - метаданные по измерению
+ organization - сведения об участниках ГАСУ</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="dataset" />
+      <enumeration value="datasource" />
+      <enumeration value="indicator" />
+      <enumeration value="organization" />
+      <enumeration value="classifier" />
+      <enumeration value="classifieritems" />
+      <enumeration value="dimension" />
+    </restriction>
+  </simpleType>
+  <complexType name="DimensionQueryType">
+    <annotation>
+      <documentation>
+    			Используется для определения ограничений по измерениям
+    			показателя. В одном запросе данных может быть множество
+    			ограничений как на одно измерение, так и на несколько
+    			измерений.
+    		</documentation>
+    </annotation>
+    <simpleContent>
+      <extension base="smev:UIDExtendedType">
+        <attribute name="providerRef" type="smev:UIDType" use="required">
+          <annotation>
+            <documentation />
+          </annotation>
+        </attribute>
+      </extension>
+    </simpleContent>
+  </complexType>
+  <complexType name="AttributeQueryType">
+    <annotation>
+      <documentation>
+    			Используется для определения ограничений
+    			предоставляемого набора данных по значениям некоторого
+    			атрибута (например, атрибута серии в запрашиваемом
+    			наборе данных по показателю)
+    		</documentation>
+    </annotation>
+    <simpleContent>
+      <extension base="string">
+        <attribute name="attributeRef" type="smev:UIDType" use="required" />
+      </extension>
+    </simpleContent>
+  </complexType>
+  <complexType name="SubQuery" abstract="true">
+    <annotation>
+      <documentation>Тип данных для группировки подзапросов</documentation>
+    </annotation>
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="IndicatorQuery" type="smev:IndicatorQueryType">
+        <annotation>
+          <documentation>Каждый элемент данного ограничения должен содержать конкретный идентификатор показателя</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" maxOccurs="unbounded" name="DateIntervalFilter" type="smev:DateIntervalType">
+        <annotation>
+          <documentation>Ограничения на временной интервал по которому предоставляются сведения</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" maxOccurs="unbounded" name="DimensionFilter" type="smev:DimensionFilterType">
+        <annotation>
+          <documentation>Каждый элемент должен содержать ограничение накладываемое на одно из измерений показателя. Может использоваться только при запросе данных по показателю</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" maxOccurs="unbounded" name="AttributeFilter" type="smev:AttributeQueryType">
+        <annotation>
+          <documentation>Каждый элемент должен содержать ограничение накладываемое на один из атрибутов показателя. Может использоваться только при запросе данных по показателю</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" maxOccurs="unbounded" name="And" type="smev:AndType">
+        <annotation>
+          <documentation>Вложенный подзапрос с условиями, объединенными при помощи логического И</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" maxOccurs="unbounded" name="Or" type="smev:OrType">
+        <annotation>
+          <documentation>Вложенный подзапрос с условиями, объединенными при помощи логического ИЛИ</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="AndType">
+    <annotation>
+      <documentation>Подзапрос, содержащий набор условий, ограничивающих предоставляемую выборку данных. Все условия, включенные в данный элемент объединяются при помощи логического оператора И</documentation>
+    </annotation>
+    <complexContent mixed="false">
+      <extension base="smev:SubQuery" />
+    </complexContent>
+  </complexType>
+  <complexType name="OrType">
+    <annotation>
+      <documentation>Подзапрос, содержащий набор условий, ограничивающих предоставляемую выборку данных. Все условия, включенные в данный элемент объединяются при помощи логического оператора ИЛИ</documentation>
+    </annotation>
+    <complexContent mixed="false">
+      <extension base="smev:SubQuery" />
+    </complexContent>
+  </complexType>
+  <complexType name="QueryType">
+    <annotation>
+      <documentation>
+    			Сообщение, содержащее параметры запроса на
+    			предоставление данных или метаданных, хранящихся в ГАСУ
+    		</documentation>
+    </annotation>
+    <choice>
+      <element name="ClassifierQuery" type="smev:ClassifierQueryType">
+        <annotation>
+          <documentation>
+    					Параметры запроса метаданных
+    					классификатора,реестра или справочника.
+    					Представляет собой идентификатор конкретного
+    					объекта или символ * для запроса полного перечня
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="ClassifierItemsQuery" type="smev:ClassifierItemsQueryType">
+        <annotation>
+          <documentation>
+    					Параметры запроса данных классификатора,реестра
+    					или справочника. Представляет собой
+    					идентификатор конкретного объекта
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="IndicatorQuery" type="smev:IndicatorQueryType">
+        <annotation>
+          <documentation>
+    					Параметры запроса на предоставление метаданных
+    					по показателю
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="DataSource" type="smev:UIDExtendedType">
+        <annotation>
+          <documentation>
+    					Запрос на предоставление сведений об источнике
+    					данных
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="Organization" type="smev:UIDExtendedType">
+        <annotation>
+          <documentation>
+    					Запрос на предоставление сведений об участнике
+    					информационного обмена в рамках ГАСУ
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="DimensionQuery" type="smev:DimensionQueryType">
+        <annotation>
+          <documentation>
+    					Параметры запроса измерения.
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="DataSet" type="smev:UIDType">
+        <annotation>
+          <documentation>
+    					Запрос набора данных по показателю
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="And" type="smev:AndType">
+        <annotation>
+          <documentation>
+    					Элемент, объединяющий несколько подзапросов при
+    					помощи логического условия И
+    				</documentation>
+        </annotation>
+      </element>
+      <element name="Or" type="smev:OrType">
+        <annotation>
+          <documentation>
+    					Элемент, объединяющий несколько подзапросов при
+    					помощи логического условия ИЛИ
+    				</documentation>
+        </annotation>
+      </element>
+    </choice>
+    <attribute name="returnType" type="smev:ObjectTypeType" use="required">
+      <annotation>
+        <documentation>
+    				Используется для определения типа возвращаемого
+    				набора данных. Поддерживаются значения: dataset -
+    				наборы данных по показателям serviceinfo -
+    				электронные сервисы indicator - метаданные
+    				показателей classifier - метаданные по справочникам,
+    				классификаторам classifieritems - данные
+    				справочников, классификаторов dimension - метаданные
+    				по измерению organization - сведения об участниках
+    				ГАСУ
+    			</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="pagingStartPage" type="int" use="required" />
+    <attribute name="pagingPageSize" use="required">
+      <simpleType>
+        <restriction base="int">
+          <maxInclusive value="1000" />
+        </restriction>
+      </simpleType>
+    </attribute>
+    <attribute default="false" name="isTKMV" type="boolean" use="optional" />
+  </complexType>
+  <complexType name="AppQueryMessageType">
+    <annotation>
+      <documentation>Прикладное сообщение, содержащее запрос к ГАСУ</documentation>
+    </annotation>
+    <sequence>
+      <element name="AppHeader" type="smev:AppHeaderType" />
+      <element name="Query" type="smev:QueryType" />
+    </sequence>
+  </complexType>
+  <element name="GasuQueryMessage">
+    <complexType>
+      <sequence>
+        <element ref="smev:Message" />
+        <element name="MessageData" type="smev:MessageDataType" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="GasuUpdatesMessage">
+    <complexType>
+      <sequence>
+        <element ref="smev:Message" />
+        <element name="MessageData">
+          <complexType>
+            <sequence>
+              <element name="AppData">
+                <complexType>
+                  <sequence>
+                    <element name="AppUpdatesMessage" type="smev:AppUpdatesMessageType" />
+                  </sequence>
+                </complexType>
+              </element>
+              <element minOccurs="0" ref="smev:AppDocument" />
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="Header" type="smev:HeaderType">
+    <annotation>
+      <documentation>Служебный загловок СМЭВ</documentation>
+    </annotation>
+  </element>
+  <element name="BaseMessage" type="smev:BaseMessageType">
+    <annotation>
+      <documentation>Базовый тип, описывающий сообщение в целом</documentation>
+    </annotation>
+  </element>
+  <element name="Message" type="smev:MessageType">
+    <annotation>
+      <documentation>Служебный блок атрибутов СМЭВ</documentation>
+    </annotation>
+  </element>
+  <element name="SubMessage" type="smev:SubMessageType">
+    <annotation>
+      <documentation>Описание заявки пакета</documentation>
+    </annotation>
+  </element>
+  <element name="SubMessages" type="smev:SubMessagesType">
+    <annotation>
+      <documentation>Набор описей заявок пакета</documentation>
+    </annotation>
+  </element>
+  <element name="MessageData" type="smev:MessageDataType">
+    <annotation>
+      <documentation>Блок-обертка данных СМЭВ</documentation>
+    </annotation>
+  </element>
+  <element name="AppData" type="smev:AppDataType">
+    <annotation>
+      <documentation>Блок структурированных сведений</documentation>
+    </annotation>
+  </element>
+  <element name="AppDocument" type="smev:AppDocumentType">
+    <annotation>
+      <documentation>Блок вложений</documentation>
+    </annotation>
+  </element>
+  <element name="SubRequestNumber" type="string">
+    <annotation>
+      <documentation>Уникальный идентификатор сообщения внутри пакета назначается инициатором взаимодействия</documentation>
+    </annotation>
+  </element>
+  <element name="Sender" type="smev:orgExternalType">
+    <annotation>
+      <documentation>Данные о системе-инициаторе взаимодействия
+				(Потребителе) (валидируется СМЭВ на соответствие сертификату)</documentation>
+    </annotation>
+  </element>
+  <element name="Recipient" type="smev:orgExternalType">
+    <annotation>
+      <documentation>Данные о системе-получателе сообщения (Поставщике)
+				(валидируется СМЭВ по реестру поставщиков)</documentation>
+    </annotation>
+  </element>
+  <element name="Originator" type="smev:orgExternalType">
+    <annotation>
+      <documentation>Данные о системе, инициировавашей цепочку из
+				нескольких запросов-ответов, объединенных единым процессом в рамках
+				взаимодействия</documentation>
+    </annotation>
+  </element>
+  <element name="ServiceName" type="string">
+    <annotation>
+      <documentation>Мнемоника электронного  сервиса.</documentation>
+    </annotation>
+  </element>
+  <element name="TypeCode" type="smev:TypeCodeType">
+    <annotation>
+      <documentation>Тип сообщения</documentation>
+    </annotation>
+  </element>
+  <element name="Date" type="dateTime">
+    <annotation>
+      <documentation>Дата создания запроса</documentation>
+    </annotation>
+  </element>
+  <element name="RequestIdRef" type="smev:idType">
+    <annotation>
+      <documentation>Идентификатор сообщения-запроса, инициировавшего
+				взаимодействие</documentation>
+    </annotation>
+  </element>
+  <element name="OriginRequestIdRef" type="smev:idType">
+    <annotation>
+      <documentation>Идентификатор сообщения-запроса, инициировавшего
+				цепочку из нескольких запросов-ответов, объединенных единым
+				процессом в рамках взаимодействия</documentation>
+    </annotation>
+  </element>
+  <element name="ServiceCode" type="string">
+    <annotation>
+      <documentation>Код услуги</documentation>
+    </annotation>
+  </element>
+  <element name="CaseNumber" type="string">
+    <annotation>
+      <documentation>Номер заявки в информационной системе-отправителе</documentation>
+    </annotation>
+  </element>
+  <element name="MessageId" type="smev:idType">
+    <annotation>
+      <documentation>Идентификатор сообщения</documentation>
+    </annotation>
+  </element>
+  <element name="TimeStamp" type="dateTime">
+    <annotation>
+      <documentation>Метка времени получения запроса СМЭВ.ом</documentation>
+    </annotation>
+  </element>
+  <element name="NodeId" type="string">
+    <annotation>
+      <documentation>Уникальный идентификатор узла</documentation>
+    </annotation>
+  </element>
+  <element name="MessageClass" type="smev:MessageClassType">
+    <annotation>
+      <documentation>Идентификатор класса сообщения</documentation>
+    </annotation>
+  </element>
+  <element name="Status" type="smev:StatusType">
+    <annotation>
+      <documentation>Статус сообщения</documentation>
+    </annotation>
+  </element>
+  <element name="ExchangeType" type="string">
+    <annotation>
+      <documentation>Категория взаимодействия</documentation>
+    </annotation>
+  </element>
+  <element name="BinaryData" type="base64Binary">
+    <annotation>
+      <documentation>Контент вложения</documentation>
+    </annotation>
+  </element>
+  <element name="Reference" type="smev:ReferenceType">
+    <annotation>
+      <documentation>Ссылка на вложение</documentation>
+    </annotation>
+  </element>
+  <element name="DigestValue" type="base64Binary">
+    <annotation>
+      <documentation>Хеш-код вложения</documentation>
+    </annotation>
+  </element>
+  <element name="TestMsg" type="string">
+    <annotation>
+      <documentation>Идентификатор тестового запроса</documentation>
+    </annotation>
+  </element>
+  <element name="RequestCode" type="string">
+    <annotation>
+      <documentation>Код заявления</documentation>
+    </annotation>
+  </element>
+  <element name="Id" type="smev:PacketIdType">
+    <annotation>
+      <documentation>Идентификатор заявки пакета</documentation>
+    </annotation>
+  </element>
+  <element name="PacketIds" type="smev:PacketIdsType">
+    <annotation>
+      <documentation>Блок идентификаторов заявок пакета</documentation>
+    </annotation>
+  </element>
+  <complexType name="HeaderType">
+    <sequence>
+      <element ref="smev:NodeId" />
+      <element ref="smev:MessageId" />
+      <element ref="smev:TimeStamp" />
+      <element ref="smev:MessageClass" />
+      <element minOccurs="0" ref="smev:PacketIds" />
+    </sequence>
+    <attribute name="actor" type="string" />
+  </complexType>
+  <complexType name="BaseMessageType">
+    <sequence>
+      <element ref="smev:Message" />
+      <element ref="smev:MessageData" />
+    </sequence>
+  </complexType>
+  <complexType name="SubMessageType">
+    <sequence>
+      <element ref="smev:SubRequestNumber" />
+      <element ref="smev:Status" />
+      <element minOccurs="0" ref="smev:Originator" />
+      <element minOccurs="0" ref="smev:ServiceName" />
+      <element ref="smev:Date" />
+      <element minOccurs="0" ref="smev:RequestIdRef" />
+      <element minOccurs="0" ref="smev:OriginRequestIdRef" />
+      <element minOccurs="0" ref="smev:ServiceCode" />
+      <element minOccurs="0" ref="smev:CaseNumber" />
+    </sequence>
+  </complexType>
+  <complexType name="SubMessagesType">
+    <sequence>
+      <element maxOccurs="unbounded" ref="smev:SubMessage" />
+    </sequence>
+  </complexType>
+  <complexType name="MessageType">
+    <sequence>
+      <element ref="smev:Sender" />
+      <element ref="smev:Recipient" />
+      <element minOccurs="0" ref="smev:Originator" />
+      <element minOccurs="0" ref="smev:ServiceName" />
+      <element ref="smev:TypeCode" />
+      <element ref="smev:Status" />
+      <element ref="smev:Date" />
+      <element ref="smev:ExchangeType" />
+      <element minOccurs="0" ref="smev:RequestIdRef" />
+      <element minOccurs="0" ref="smev:OriginRequestIdRef" />
+      <element minOccurs="0" ref="smev:ServiceCode" />
+      <element minOccurs="0" ref="smev:CaseNumber" />
+      <element minOccurs="0" ref="smev:SubMessages" />
+      <element minOccurs="0" ref="smev:TestMsg" />
+    </sequence>
+  </complexType>
+  <complexType name="MessageDataType">
+    <sequence>
+      <element minOccurs="0" ref="smev:AppData" />
+      <element minOccurs="0" ref="smev:AppDocument" />
+    </sequence>
+  </complexType>
+  <complexType name="PacketIdType">
+    <sequence>
+      <element ref="smev:MessageId" />
+      <element ref="smev:SubRequestNumber" />
+    </sequence>
+  </complexType>
+  <complexType name="PacketIdsType">
+    <sequence>
+      <element maxOccurs="unbounded" ref="smev:Id" />
+    </sequence>
+  </complexType>
+  <complexType name="AppDataType">
+    <sequence>
+      <element minOccurs="0" name="AppQueryMessage" type="smev:AppQueryMessageType" />
+    </sequence>
+    <anyAttribute namespace="##any" processContents="lax" />
+  </complexType>
+  <complexType name="AttributesType">
+    <annotation>
+      <documentation>Дополнительные атрибуты, связанные с измерением</documentation>
+    </annotation>
+    <sequence>
+      <element maxOccurs="unbounded" name="Value">
+        <annotation>
+          <documentation>Значение дополнительного атрибута, связанного с измерением показателя</documentation>
+        </annotation>
+        <complexType>
+          <complexContent mixed="false">
+            <extension base="smev:ValueByTypeType">
+              <choice>
+                <element name="ValueInt" type="int" />
+                <element name="ValueBoolean" type="boolean" />
+                <element name="ValueDate" type="dateTime" />
+                <element name="ValueString" type="string" />
+                <element name="ValueDouble" type="double" />
+              </choice>
+              <attribute name="ref" type="smev:UIDType" use="required">
+                <annotation>
+                  <documentation>
+                                        						ссылка
+                                        						на
+                                        						описание
+                                        						атрибута,
+                                        						определенное
+                                        						в рамках
+                                        						данного
+                                        						показателя
+                                        					</documentation>
+                </annotation>
+              </attribute>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="AppDocumentType">
+    <sequence>
+      <element ref="smev:RequestCode" />
+      <choice>
+        <element ref="smev:BinaryData" />
+        <sequence>
+          <element ref="smev:Reference" />
+          <element ref="smev:DigestValue" />
+        </sequence>
+      </choice>
+    </sequence>
+  </complexType>
+  <complexType name="ReferenceType" mixed="true">
+    <sequence>
+      <element minOccurs="0" ref="xop:Include" />
+    </sequence>
+  </complexType>
+  <complexType name="orgExternalType">
+    <annotation>
+      <documentation>Сведения об информационной системе</documentation>
+    </annotation>
+    <sequence>
+      <element name="Code" type="string">
+        <annotation>
+          <documentation>Идентификатор системы</documentation>
+        </annotation>
+      </element>
+      <element name="Name" type="string">
+        <annotation>
+          <documentation>Наименование системы</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <simpleType name="TypeCodeType">
+    <restriction base="string">
+      <enumeration value="GSRV">
+        <annotation>
+          <documentation>
+    					Взаимодействие в рамках оказания государственных
+    					услуг
+    				</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="GFNC">
+        <annotation>
+          <documentation>
+    					Взаимодействие в рамках исполнения
+    				</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="OTHR" />
+    </restriction>
+  </simpleType>
+  <simpleType name="MessageClassType">
+    <restriction base="string">
+      <enumeration value="REQUEST">
+        <annotation>
+          <documentation>Запрос от потребителя к поставщику</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="RESPONSE">
+        <annotation>
+          <documentation>Ответ поставщика потребителю</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="StatusType">
+    <restriction base="string">
+      <enumeration value="REQUEST">
+        <annotation>
+          <documentation>Запрос</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="RESULT">
+        <annotation>
+          <documentation>Результат</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="REJECT">
+        <annotation>
+          <documentation>Мотивированный отказ</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="INVALID">
+        <annotation>
+          <documentation>Ошибка при ФЛК</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="ACCEPT">
+        <annotation>
+          <documentation>Сообщение-квиток о приеме</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PING">
+        <annotation>
+          <documentation>Запрос данных/результатов</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PROCESS">
+        <annotation>
+          <documentation>В обработке</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="NOTIFY">
+        <annotation>
+          <documentation>Уведомление об ошибке</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="FAILURE">
+        <annotation>
+          <documentation>Технический сбой</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CANCEL">
+        <annotation>
+          <documentation>Отзыв заявления</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="STATE">
+        <annotation>
+          <documentation>Возврат состояния</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PACKET">
+        <annotation>
+          <documentation>Передача пакетного сообщения</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="idType">
+    <restriction base="string" />
+  </simpleType>
+  <complexType name="ClassifierQueryType">
+    <annotation>
+      <documentation />
+    </annotation>
+    <simpleContent>
+      <extension base="smev:UIDExtendedType">
+        <attribute name="providerRef" type="smev:UIDType" use="required">
+          <annotation>
+            <documentation>
+    						Идентификатор источника данных
+    					</documentation>
+          </annotation>
+        </attribute>
+      </extension>
+    </simpleContent>
+  </complexType>
+  <complexType name="ClassifierItemsQueryType">
+    <simpleContent>
+      <extension base="smev:UIDExtendedType">
+        <attribute name="providerRef" type="smev:UIDType" use="required">
+          <annotation>
+            <documentation>
+    						Идентификатор источника данных
+    					</documentation>
+          </annotation>
+        </attribute>
+      </extension>
+    </simpleContent>
+  </complexType>
+  <complexType name="IndicatorQueryType">
+    <simpleContent>
+      <extension base="smev:UIDExtendedType">
+        <attribute name="providerRef" type="smev:UIDType" use="required">
+          <annotation>
+            <documentation>
+    						Идентификатор источника данных
+    					</documentation>
+          </annotation>
+        </attribute>
+      </extension>
+    </simpleContent>
+  </complexType>
+  <complexType name="DimensionFilterType">
+    <simpleContent>
+      <extension base="string">
+        <attribute name="dimensionRef" type="smev:UIDType" use="required" />
+      </extension>
+    </simpleContent>
+  </complexType>
+  <complexType name="ResponseTicketInfoType">
+    <sequence minOccurs="0" maxOccurs="unbounded">
+      <element name="ActionStatus" type="smev:ActionStatusType" />
+    </sequence>
+  </complexType>
+  <complexType name="ActionStatusType">
+    <simpleContent>
+      <extension base="string">
+        <attribute name="logLevel" type="smev:ActionLogLevelType" use="required" />
+        <attribute name="statusDate" type="dateTime" use="required" />
+        <attribute name="errorStatusCode" type="string" />
+      </extension>
+    </simpleContent>
+  </complexType>
+  <simpleType name="ActionLogLevelType">
+    <restriction base="string">
+      <enumeration value="info" />
+      <enumeration value="error" />
+      <enumeration value="debug" />
+    </restriction>
+  </simpleType>
+  <complexType name="PublishResponseType">
+    <sequence>
+      <element name="PublishResponseInfo" type="smev:ResponseTicketInfoType" />
+    </sequence>
+  </complexType>
+  <complexType name="QueryResponseType">
+    <choice>
+      <element minOccurs="0" maxOccurs="unbounded" name="Organizations" type="smev:OrganizationType" />
+      <element minOccurs="0" maxOccurs="unbounded" name="DataSource" type="smev:DataSourceType" />
+      <element minOccurs="0" maxOccurs="unbounded" name="Classifier" type="smev:ClassifierType" />
+      <element minOccurs="0" maxOccurs="unbounded" name="ClassifierItems" type="smev:ClassifierItemsType" />
+      <element minOccurs="0" maxOccurs="unbounded" name="Dimension" type="smev:DimensionType" />
+      <element minOccurs="0" maxOccurs="unbounded" name="Indicator" type="smev:IndicatorType" />
+      <element minOccurs="0" maxOccurs="unbounded" name="DataSet" type="smev:DataSetType" />
+      <element minOccurs="0" maxOccurs="unbounded" name="ServiceInfo" type="smev:ServiceInfoType" />
+    </choice>
+    <attribute name="messageType" type="smev:MessageTypeType" />
+    <attribute name="pagingTotal" type="int" />
+  </complexType>
+  <complexType name="UpdatesResponseType">
+    <sequence minOccurs="1" maxOccurs="unbounded">
+      <element name="Time" type="smev:TimeType" />
+    </sequence>
+    <attribute name="pagingTotal" type="int" />
+  </complexType>
+  <simpleType name="PeriodicityType">
+    <restriction base="string">
+      <enumeration value="Daily" />
+      <enumeration value="Monthly" />
+      <enumeration value="Quarterly" />
+      <enumeration value="Yearly" />
+      <enumeration value="Halfyear" />
+      <enumeration value="NineMonth" />
+      <enumeration value="Weekly" />
+    </restriction>
+  </simpleType>
+  <complexType name="DeleteType">
+    <sequence>
+      <element maxOccurs="unbounded" name="uid" type="smev:UIDExtendedType" />
+    </sequence>
+    <attribute name="objectType" type="smev:ObjectTypeType" use="required" />
+    <attribute name="providerRef" type="smev:UIDType" use="required" />
+    <attribute name="classifierRef" type="smev:UIDType" />
+    <attribute name="indicatorRef" type="smev:UIDType" />
+  </complexType>
+  <complexType name="ValueByTypeType" />
+  <simpleType name="DataType">
+    <annotation>
+      <documentation>Тип данных</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="date" />
+      <enumeration value="boolean" />
+      <enumeration value="string" />
+      <enumeration value="double" />
+      <enumeration value="integer" />
+    </restriction>
+  </simpleType>
+  <complexType name="AttributesMetadataType">
+    <annotation>
+      <documentation>Описание дополнительных атрибутов элементов
+    						
+    					</documentation>
+    </annotation>
+    <sequence>
+      <element maxOccurs="unbounded" name="Attribute">
+        <complexType>
+          <annotation>
+            <documentation />
+          </annotation>
+          <attribute name="id" type="smev:UIDType" use="required">
+            <annotation>
+              <documentation>
+    										Порядковый номер атрибута. Должен быть
+    										уникальным в рамках текущего
+    										объекта
+    									</documentation>
+            </annotation>
+          </attribute>
+          <attribute name="name" type="string" use="required">
+            <annotation>
+              <documentation>
+    										Имя атрибута
+    									</documentation>
+            </annotation>
+          </attribute>
+          <attribute name="dataType" type="smev:DataType" use="required">
+            <annotation>
+              <documentation>
+    										Тип данных атрибута
+    									</documentation>
+            </annotation>
+          </attribute>
+          <attribute default="false" name="required" type="boolean" use="optional">
+            <annotation>
+              <documentation>
+    										Признак обязательности
+    										атрибута
+    									</documentation>
+            </annotation>
+          </attribute>
+          <attribute name="classifierRef" type="smev:UIDType" use="optional" />
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <simpleType name="GUIDType">
+    <restriction base="string">
+      <pattern value="([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})|(\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\})" />
+    </restriction>
+  </simpleType>
+  <complexType name="ExtraMetadataType">
+    <sequence>
+      <element minOccurs="1" maxOccurs="unbounded" name="KeyValuePair" type="smev:KeyValuePairType" />
+    </sequence>
+  </complexType>
+  <complexType name="KeyValuePairType">
+    <sequence>
+      <element name="value" type="string" />
+      <element name="description" type="string" />
+      <element name="key" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="UpdatesFilterType">
+    <sequence>
+      <element name="IndicatorRef" type="string" />
+      <element name="DateInterval" type="smev:DateTimeIntervalType" />
+    </sequence>
+    <attribute name="providerRef" type="smev:UIDType" use="required" />
+    <attribute default="false" name="isTKMV" type="boolean" use="optional" />
+  </complexType>
+</schema>

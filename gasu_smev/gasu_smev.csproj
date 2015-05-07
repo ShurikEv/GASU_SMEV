@@ -32,9 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CryptoPro.Sharpei.Base, Version=1.0.0.10, Culture=neutral, PublicKeyToken=473b8c5086e795f5, processorArchitecture=MSIL" />
-    <Reference Include="CryptoPro.Sharpei.ServiceModel, Version=1.0.0.1, Culture=neutral, PublicKeyToken=473b8c5086e795f5, processorArchitecture=MSIL" />
-    <Reference Include="CryptoPro.Sharpei.Xml, Version=1.0.0.10, Culture=neutral, PublicKeyToken=473b8c5086e795f5, processorArchitecture=MSIL" />
+    <Reference Include="CryptoPro.Sharpei.Base, Version=1.4.0.10, Culture=neutral, PublicKeyToken=473b8c5086e795f5, processorArchitecture=MSIL" />
+    <Reference Include="CryptoPro.Sharpei.ServiceModel, Version=1.4.0.1, Culture=neutral, PublicKeyToken=473b8c5086e795f5, processorArchitecture=MSIL" />
+    <Reference Include="CryptoPro.Sharpei.Xml, Version=1.4.0.10, Culture=neutral, PublicKeyToken=473b8c5086e795f5, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel" />
@@ -63,7 +63,20 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\GASU\a6d89b6c-8ad3-4abd-9961-827d45c195b6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GASU\c89f2c51-e1c8-4bf2-82bb-c41c4a094e16.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\GASU\gasu2ws.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GASU\configuration91.svcinfo" />
+    <None Include="Service References\GASU\configuration.svcinfo" />
     <None Include="Service References\GASU\gasu_smev.GASU.GasuTicket.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -76,35 +89,16 @@
     <None Include="Service References\GASU\gasu_smev.GASU.updatesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\GASU\OwsmImport.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\GASU\OwsmImport1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\GASU\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GASU\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\GASU\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\GASU\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="XMLFile1.xml">
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GASU\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
